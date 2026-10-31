@@ -2,241 +2,709 @@
 <html lang="fr">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>NEON THUNDER</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#090909">
+<title>BLG INDUSTRY | DIRECTION</title>
 
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;800;900&family=Rajdhani:wght@400;600;700&display=swap');
+:root {
+  color-scheme: dark;
+  --red: #e01924;
+}
 
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 body {
-    background: #050510;
-    color: white;
-    font-family: 'Rajdhani', sans-serif;
-    min-height: 100vh;
-    overflow-x: hidden;
+  margin: 0;
+  background: #090909;
+  color: white;
+  font-family: Arial, sans-serif;
 }
-
-/* BACKGROUND ELECTRIQUE */
-
-body::before {
-    content: "";
-    position: fixed;
-    inset: 0;
-    background:
-        radial-gradient(circle at 20% 30%, #152b68 0%, transparent 35%),
-        radial-gradient(circle at 80% 70%, #47105d 0%, transparent 35%),
-        linear-gradient(135deg, #050510, #090d24, #10051c);
-    z-index: -3;
-}
-
-/* ECLAIRS */
-
-.lightning {
-    position: fixed;
-    width: 3px;
-    height: 350px;
-    background: linear-gradient(
-        transparent,
-        #00eaff,
-        white,
-        #a000ff,
-        transparent
-    );
-    filter: blur(3px);
-    opacity: 0;
-    z-index: -1;
-    animation: thunder 5s infinite;
-}
-
-.lightning.one {
-    top: 5%;
-    left: 15%;
-    transform: rotate(35deg);
-}
-
-.lightning.two {
-    top: 30%;
-    right: 15%;
-    transform: rotate(-40deg);
-    animation-delay: 2s;
-}
-
-.lightning.three {
-    bottom: 0;
-    left: 70%;
-    transform: rotate(25deg);
-    animation-delay: 3.5s;
-}
-
-@keyframes thunder {
-    0%, 85%, 100% { opacity: 0; }
-    87% { opacity: .9; }
-    89% { opacity: .1; }
-    91% { opacity: .8; }
-    94% { opacity: 0; }
-}
-
-/* CONTAINER */
-
-.container {
-    max-width: 500px;
-    margin: auto;
-    padding: 30px 20px;
-}
-
-/* HEADER */
 
 header {
-    text-align: center;
-    padding: 40px 10px;
+  text-align: center;
+  padding: 24px 16px;
 }
 
-.logo {
-    font-family: 'Orbitron', sans-serif;
-    font-size: 32px;
-    font-weight: 900;
-    color: #fff;
-    text-shadow:
-        0 0 10px #00eaff,
-        0 0 25px #0077ff,
-        0 0 50px #8b00ff;
-    letter-spacing: 4px;
+header img {
+  width: min(190px, 55vw);
+  height: auto;
 }
 
-.subtitle {
-    color: #00eaff;
-    letter-spacing: 5px;
-    margin-top: 12px;
-    font-size: 13px;
+h1 {
+  font-size: 25px;
+  letter-spacing: 4px;
+  margin: 14px 0 4px;
 }
 
-/* CARTE */
-
-.card {
-    background: rgba(10, 18, 45, 0.75);
-    border: 1px solid rgba(0, 234, 255, .5);
-    border-radius: 20px;
-    padding: 25px;
-    margin-top: 25px;
-    backdrop-filter: blur(15px);
-    box-shadow:
-        0 0 15px rgba(0, 234, 255, .15),
-        0 0 40px rgba(110, 0, 255, .12);
-    transition: .3s;
+.sub, .section-title {
+  color: #aaa;
+  letter-spacing: 2px;
+  font-size: 12px;
 }
 
-.card:hover {
-    transform: translateY(-5px);
-    border-color: #00eaff;
-    box-shadow: 0 0 30px rgba(0, 234, 255, .35);
+main {
+  max-width: 620px;
+  margin: auto;
+  padding: 12px 18px 100px;
 }
 
-.card h2 {
-    font-family: 'Orbitron', sans-serif;
-    font-size: 18px;
-    color: #00eaff;
-    margin-bottom: 15px;
+.section-title {
+  margin: 18px 0;
 }
 
-.card p {
-    font-size: 17px;
-    color: #c7d5ff;
-    line-height: 1.6;
+/* BOUTONS ÉCLAIRS */
+
+.category {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  width: 100%;
+  padding: 24px 18px;
+  margin: 10px 0;
+  background: linear-gradient(
+    110deg,
+    #151515,
+    #1d1011,
+    #151515
+  );
+  border: 1px solid var(--red);
+  border-radius: 9px;
+  color: white;
+  text-align: left;
+  font-size: 20px;
+  font-weight: bold;
+  letter-spacing: 2px;
+  cursor: pointer;
+  box-shadow:
+    inset 0 0 18px #e0192418,
+    0 0 10px #e019241c;
 }
 
-/* BOUTON */
-
-.button {
-    display: block;
-    width: 100%;
-    padding: 16px;
-    margin-top: 25px;
-    border: none;
-    border-radius: 12px;
-    background: linear-gradient(90deg, #0077ff, #8b00ff);
-    color: white;
-    font-family: 'Orbitron', sans-serif;
-    font-weight: 800;
-    font-size: 13px;
-    letter-spacing: 2px;
-    cursor: pointer;
-    box-shadow: 0 0 20px rgba(0, 140, 255, .5);
-    transition: .3s;
+.category:before {
+  content: "⚡";
+  position: absolute;
+  right: 45px;
+  top: 4px;
+  font-size: 45px;
+  color: var(--red);
+  opacity: .22;
+  transform: rotate(-12deg);
+  pointer-events: none;
 }
 
-.button:hover {
-    box-shadow: 0 0 35px #00eaff;
-    transform: scale(1.03);
+.category:after {
+  content: "⚡";
+  position: absolute;
+  right: 12px;
+  bottom: -5px;
+  font-size: 30px;
+  color: #ff4650;
+  opacity: .14;
+  pointer-events: none;
 }
 
-/* FOOTER */
-
-footer {
-    text-align: center;
-    padding: 40px 10px;
-    color: #6478ad;
-    font-size: 13px;
-    letter-spacing: 2px;
+.category span {
+  position: relative;
+  z-index: 1;
+  float: right;
+  color: var(--red);
+  font-size: 24px;
 }
 
+/* CATALOGUE */
+
+.back {
+  background: none;
+  border: 0;
+  color: var(--red);
+  padding: 12px 0;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.product, .cart-row {
+  background: #151515;
+  border: 1px solid #333;
+  border-radius: 9px;
+  padding: 16px;
+  margin: 10px 0;
+}
+
+.product {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.price {
+  color: var(--red);
+  font-weight: bold;
+  margin-top: 6px;
+}
+
+.qty {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.qty button, .remove {
+  background: #222;
+  border: 1px solid var(--red);
+  color: white;
+  border-radius: 6px;
+  width: 34px;
+  height: 34px;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.primary {
+  padding: 14px;
+  border-radius: 7px;
+  background: var(--red);
+  border: 0;
+  color: white;
+  width: 100%;
+  font-weight: bold;
+  margin-top: 12px;
+  cursor: pointer;
+}
+
+.total {
+  text-align: right;
+  font-size: 22px;
+  font-weight: bold;
+  margin: 20px 2px;
+}
+
+.empty, .notice {
+  color: #888;
+  text-align: center;
+}
+
+.notice {
+  font-size: 11px;
+  line-height: 1.5;
+  margin: 28px 5px;
+}
+
+/* VIDÉOS PRODUITS */
+
+.video-section {
+  margin: 28px 0 18px;
+  padding: 18px 14px;
+  border: 1px solid #572027;
+  border-radius: 10px;
+  background: linear-gradient(
+    145deg,
+    #151515,
+    #0c0c0c
+  );
+  box-shadow: 0 0 18px #e0192410;
+}
+
+.video-heading {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+
+.video-mark {
+  color: var(--red);
+  font-size: 22px;
+}
+
+.video-card {
+  background: #111;
+  border: 1px solid #333;
+  border-radius: 9px;
+  padding: 10px;
+  margin: 12px 0;
+}
+
+.video-card video {
+  display: block;
+  width: 100%;
+  max-height: 520px;
+  aspect-ratio: 16 / 9;
+  object-fit: contain;
+  background: #000;
+  border-radius: 6px;
+}
+
+.video-name {
+  font-weight: bold;
+  letter-spacing: 1px;
+  margin: 10px 2px 3px;
+}
+
+.video-empty {
+  color: #888;
+  font-size: 13px;
+  line-height: 1.5;
+  text-align: center;
+  padding: 14px 8px;
+}
+
+/* NAVIGATION */
+
+nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #101010;
+  border-top: 1px solid #333;
+  display: flex;
+  justify-content: center;
+  gap: 18px;
+  padding: 12px;
+  z-index: 5;
+}
+
+.navbtn {
+  background: none;
+  border: 0;
+  color: white;
+  padding: 8px 16px;
+  cursor: pointer;
+}
+
+.navbtn b {
+  color: var(--red);
+}
+
+.hidden {
+  display: none !important;
+}
 </style>
 </head>
 
 <body>
 
-<div class="lightning one"></div>
-<div class="lightning two"></div>
-<div class="lightning three"></div>
-
-<div class="container">
-
 <header>
-    <div class="logo">⚡ THUNDER</div>
-    <div class="subtitle">WELCOME TO THE ELECTRIC WORLD</div>
+  <img src="blg-logo.jpeg" alt="BLG INDUSTRY">
+  <h1>BLG INDUSTRY</h1>
+  <div class="sub">DIRECTION</div>
 </header>
 
-<div class="card">
-    <h2>⚡ EXPERIENCE</h2>
-    <p>
-        Bienvenue dans un univers électrique.
-        Une expérience futuriste, des couleurs
-        néon et une énergie sans limites.
-    </p>
-</div>
+<main>
 
-<div class="card">
-    <h2>🔥 DISCOVER</h2>
-    <p>
-        Explore notre univers et découvre
-        une interface conçue pour offrir
-        une expérience unique.
-    </p>
-</div>
+<section id="home">
 
-<div class="card">
-    <h2>🌌 NEXT LEVEL</h2>
-    <p>
-        Plonge dans une ambiance cyberpunk
-        où chaque détail brille d'une énergie
-        nouvelle.
-    </p>
-</div>
+  <div class="section-title">
+    CHOISIS TA CATÉGORIE
+  </div>
 
-<button class="button" onclick="alert('WELCOME TO THUNDER ⚡')">
-    ENTER THE EXPERIENCE
-</button>
+  <button class="category"
+  onclick="showCategory('Mousseux')">
+    MOUSSEUX <span>›</span>
+  </button>
 
-<footer>
-    POWERED BY NEON ENERGY ⚡
-</footer>
+  <button class="category"
+  onclick="showCategory('Filtré')">
+    FILTRÉ <span>›</span>
+  </button>
 
-</div>
+  <button class="category"
+  onclick="showCategory('Haze')">
+    HAZE <span>›</span>
+  </button>
+
+  <!-- GALERIE VIDÉOS -->
+
+  <section class="video-section">
+
+    <div class="video-heading">
+      <span class="video-mark">▶</span>
+      <div class="section-title" style="margin:0">
+        VIDÉOS PRODUITS HD
+      </div>
+    </div>
+
+    <div id="videoGallery"></div>
+
+  </section>
+
+</section>
+
+<section id="catalog" class="hidden">
+
+  <button class="back" onclick="goHome()">
+    ‹ RETOUR
+  </button>
+
+  <div class="section-title" id="catTitle"></div>
+
+  <div id="products"></div>
+
+</section>
+
+<section id="cart" class="hidden">
+
+  <button class="back" onclick="goHome()">
+    ‹ RETOUR À LA BOUTIQUE
+  </button>
+
+  <div class="section-title">
+    MON PANIER
+  </div>
+
+  <div id="cartItems"></div>
+
+  <div class="total" id="total"></div>
+
+  <p class="notice">
+    Panier de démonstration : aucun paiement
+    ni aucune commande n’est envoyé depuis cette page.
+  </p>
+
+</section>
+
+<p class="notice">
+  Produits CBD. Vérifier la conformité et les informations
+  réglementaires avant commercialisation.
+  Vente réservée aux adultes.
+</p>
+
+</main>
+
+<nav>
+
+  <button class="navbtn" onclick="goHome()">
+    ⌂ <b>Boutique</b>
+  </button>
+
+  <button class="navbtn" onclick="showCart()">
+    ▣ <b>Panier</b>
+    (<span id="cartCount">0</span>)
+  </button>
+
+</nav>
+
+<script>
+
+/* TARIFS DU CATALOGUE */
+
+const data = {
+
+  'Mousseux': [
+    {w:'4 g',p:20},
+    {w:'10 g',p:50},
+    {w:'25 g',p:120},
+    {w:'50 g',p:200}
+  ],
+
+  'Filtré': [
+    {w:'2 g',p:20},
+    {w:'5 g',p:40},
+    {w:'10 g',p:70},
+    {w:'50 g',p:300}
+  ],
+
+  'Haze': [
+    {w:'3 g',p:20},
+    {w:'6 g',p:40},
+    {w:'10 g',p:60},
+    {w:'25 g',p:140}
+  ]
+
+};
+
+
+/*
+====================================
+GESTION DES VIDÉOS PRODUITS
+====================================
+
+Pour ajouter une vidéo :
+
+1. Crée un dossier "videos" dans GitHub.
+2. Dépose ton fichier MP4 dedans.
+3. Ajoute une ligne dans la liste ci-dessous.
+
+Exemple :
+
+{
+  title: 'Présentation produit',
+  src: 'videos/presentation.mp4'
+}
+
+Pour supprimer une vidéo, retire sa ligne.
+====================================
+*/
+
+const productVideos = [
+
+  // {title:'Présentation produit',src:'videos/presentation.mp4'},
+
+  // Ajoute tes prochaines vidéos ici.
+
+];
+
+
+/* AFFICHAGE DES VIDÉOS */
+
+function renderVideos() {
+
+  const box = document.getElementById('videoGallery');
+
+  if (!productVideos.length) {
+
+    box.innerHTML = `
+      <div class="video-empty">
+        Les vidéos arriveront ici.<br><br>
+        Ajoute tes fichiers MP4 dans le dossier
+        <b>videos</b> sur GitHub, puis renseigne
+        leurs noms dans la liste productVideos.
+      </div>
+    `;
+
+    return;
+  }
+
+  box.innerHTML = productVideos.map(v => `
+
+    <article class="video-card">
+
+      <video controls playsinline preload="metadata">
+
+        <source src="${v.src}" type="video/mp4">
+
+        Ton navigateur ne peut pas lire cette vidéo.
+
+      </video>
+
+      <div class="video-name">
+        ${v.title}
+      </div>
+
+    </article>
+
+  `).join('');
+
+}
+
+renderVideos();
+
+
+/* PANIER */
+
+let cart = {};
+
+const euro = n => n.toLocaleString(
+  'fr-FR',
+  {
+    style:'currency',
+    currency:'EUR',
+    maximumFractionDigits:0
+  }
+);
+
+
+function show(id) {
+
+  ['home','catalog','cart'].forEach(x => {
+
+    document.getElementById(x)
+    .classList.toggle('hidden', x !== id);
+
+  });
+
+}
+
+
+function goHome() {
+  show('home');
+}
+
+
+function showCategory(name) {
+
+  show('catalog');
+
+  document.getElementById('catTitle')
+  .textContent = name.toUpperCase();
+
+  document.getElementById('products').innerHTML =
+  data[name].map((x,i) => `
+
+    <div class="product">
+
+      <div>
+
+        <b>${x.w}</b>
+
+        <div class="price">
+          ${euro(x.p)}
+        </div>
+
+      </div>
+
+      <div class="qty">
+
+        <button onclick="change('${name}',${i},-1)">
+          −
+        </button>
+
+        <span id="q-${i}">
+          ${cart[name+'|'+i] || 0}
+        </span>
+
+        <button onclick="change('${name}',${i},1)">
+          +
+        </button>
+
+      </div>
+
+    </div>
+
+  `).join('') +
+
+  '<button class="primary" onclick="showCart()">VOIR MON PANIER</button>';
+
+}
+
+
+function change(name,i,d) {
+
+  const key = name+'|'+i;
+
+  cart[key] = Math.max(
+    0,
+    (cart[key] || 0) + d
+  );
+
+  if (!cart[key]) delete cart[key];
+
+  document.getElementById('q-'+i).textContent =
+  cart[key] || 0;
+
+  updateCount();
+
+}
+
+
+function updateCount() {
+
+  document.getElementById('cartCount')
+  .textContent = Object.values(cart)
+  .reduce((a,b) => a+b, 0);
+
+}
+
+
+function showCart() {
+
+  show('cart');
+
+  let total = 0;
+
+  const entries = Object.entries(cart);
+
+  document.getElementById('cartItems').innerHTML =
+
+  entries.length ? entries.map(([key,q]) => {
+
+    const [name,index] = key.split('|');
+
+    const item = data[name][Number(index)];
+
+    const sum = item.p*q;
+
+    total += sum;
+
+    return `
+
+      <div class="cart-row">
+
+        <div class="product"
+        style="border:0;padding:0;margin:0">
+
+          <div>
+
+            <b>${name} · ${item.w}</b>
+
+            <div class="price">
+              ${euro(item.p)} / unité
+            </div>
+
+          </div>
+
+          <div class="qty">
+
+            <button onclick="cartChange('${key}',-1)">
+              −
+            </button>
+
+            <span>${q}</span>
+
+            <button onclick="cartChange('${key}',1)">
+              +
+            </button>
+
+          </div>
+
+        </div>
+
+        <div style="
+        display:flex;
+        justify-content:space-between;
+        margin-top:14px">
+
+          <b>${euro(sum)}</b>
+
+          <button class="remove"
+          onclick="removeItem('${key}')">
+            ×
+          </button>
+
+        </div>
+
+      </div>
+
+    `;
+
+  }).join('') :
+
+  '<div class="empty">Ton panier est vide pour le moment.</div>';
+
+  document.getElementById('total').textContent =
+  'Total : ' + euro(total);
+
+}
+
+
+function cartChange(key,d) {
+
+  cart[key] = Math.max(0,cart[key]+d);
+
+  if (!cart[key]) delete cart[key];
+
+  updateCount();
+
+  showCart();
+
+}
+
+
+function removeItem(key) {
+
+  delete cart[key];
+
+  updateCount();
+
+  showCart();
+
+}
+
+</script>
 
 </body>
 </html>
