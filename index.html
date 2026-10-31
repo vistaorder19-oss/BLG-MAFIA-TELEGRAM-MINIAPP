@@ -1,87 +1,658 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <meta name="theme-color" content="#090909">
-  <title>BLG MAFIA | RED THUNDER</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;600;700;800;900&family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
-  <script src="https://telegram.org/js/telegram-web-app.js"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#080808">
+<title>BLG MAFIA</title>
+
+<script src="https://telegram.org/js/telegram-web-app.js"></script>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Rajdhani:wght@500;600;700&display=swap');
+
+:root {
+  --bg:#080808;
+  --card:#151515;
+  --red:#ed182d;
+  --white:#fff;
+  --grey:#aaa;
+}
+
+* {
+  box-sizing:border-box;
+}
+
+html {
+  scroll-behavior:smooth;
+}
+
+body {
+  margin:0;
+  background:var(--bg);
+  color:var(--white);
+  font-family:'Rajdhani',sans-serif;
+}
+
+header {
+  position:sticky;
+  top:0;
+  z-index:10;
+  background:#090909;
+  border-bottom:1px solid var(--red);
+  padding:16px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.logo {
+  font-family:'Orbitron',sans-serif;
+  font-size:21px;
+  font-weight:900;
+  color:var(--red);
+  letter-spacing:2px;
+}
+
+button {
+  cursor:pointer;
+  font-family:'Orbitron',sans-serif;
+}
+
+.cart-button {
+  background:var(--red);
+  color:white;
+  border:0;
+  padding:10px 14px;
+  font-size:11px;
+}
+
+.hero {
+  text-align:center;
+  padding:65px 20px;
+  background:
+    radial-gradient(circle at center,rgba(237,24,45,.23),transparent 65%),
+    #101010;
+  border-bottom:1px solid #351016;
+}
+
+.hero h1 {
+  font-family:'Orbitron',sans-serif;
+  font-size:clamp(32px,8vw,55px);
+  margin:0;
+  font-weight:900;
+}
+
+.hero h1 span {
+  color:var(--red);
+}
+
+.hero p {
+  color:var(--grey);
+  font-size:18px;
+}
+
+.primary {
+  display:inline-block;
+  margin-top:15px;
+  padding:14px 24px;
+  background:var(--red);
+  color:white;
+  text-decoration:none;
+  font-family:'Orbitron',sans-serif;
+  font-size:12px;
+  border:0;
+}
+
+.container {
+  width:min(1000px,92%);
+  margin:auto;
+}
+
+section {
+  padding:35px 0;
+}
+
+.section-title {
+  font-family:'Orbitron',sans-serif;
+  font-size:22px;
+  border-left:4px solid var(--red);
+  padding-left:12px;
+  margin-bottom:20px;
+}
+
+.categories {
+  display:flex;
+  gap:8px;
+  overflow-x:auto;
+  padding-bottom:15px;
+}
+
+.category {
+  white-space:nowrap;
+  background:#191919;
+  color:white;
+  border:1px solid #444;
+  padding:12px 15px;
+  font-size:10px;
+}
+
+.category.active {
+  background:var(--red);
+  border-color:var(--red);
+}
+
+.products {
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:12px;
+}
+
+.product {
+  background:var(--card);
+  border:1px solid #302020;
+  padding:13px;
+}
+
+.product-image {
+  height:115px;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  background:linear-gradient(135deg,#25070c,#111);
+  color:var(--red);
+  font-family:'Orbitron',sans-serif;
+  font-size:25px;
+  font-weight:900;
+}
+
+.product h3 {
+  font-family:'Orbitron',sans-serif;
+  font-size:14px;
+}
+
+.product p {
+  color:var(--grey);
+  font-size:15px;
+}
+
+.product-bottom {
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:5px;
+}
+
+.price {
+  color:var(--red);
+  font-weight:700;
+}
+
+.add {
+  background:var(--red);
+  color:white;
+  border:0;
+  padding:10px;
+  font-size:9px;
+}
+
+.cart {
+  background:#141414;
+  border:1px solid #3a171d;
+  padding:15px;
+}
+
+.cart-item {
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:10px;
+  padding:12px 0;
+  border-bottom:1px solid #333;
+}
+
+.cart-item strong {
+  font-size:15px;
+}
+
+.cart-controls {
+  display:flex;
+  align-items:center;
+  gap:8px;
+}
+
+.cart-controls button {
+  background:#292020;
+  color:white;
+  border:1px solid #63303a;
+  padding:5px 9px;
+}
+
+.total {
+  display:flex;
+  justify-content:space-between;
+  margin-top:20px;
+  font-family:'Orbitron',sans-serif;
+  font-size:14px;
+}
+
+.total strong {
+  color:var(--red);
+}
+
+.clear {
+  margin-top:18px;
+  width:100%;
+  padding:12px;
+  background:transparent;
+  color:white;
+  border:1px solid var(--red);
+}
+
+.media-grid {
+  display:grid;
+  grid-template-columns:1fr;
+  gap:12px;
+}
+
+video {
+  width:100%;
+  background:#111;
+  border:1px solid #52202a;
+}
+
+.community {
+  background:#151010;
+  border:1px solid #4b171f;
+  padding:25px;
+  text-align:center;
+}
+
+.community h2 {
+  font-family:'Orbitron',sans-serif;
+}
+
+.community a {
+  display:inline-block;
+  background:var(--red);
+  padding:13px 20px;
+  color:white;
+  text-decoration:none;
+  font-family:'Orbitron',sans-serif;
+  font-size:11px;
+}
+
+.note {
+  color:#888;
+  font-size:13px;
+  line-height:1.5;
+}
+
+footer {
+  padding:25px;
+  text-align:center;
+  color:#777;
+  border-top:1px solid #42151d;
+  font-family:'Orbitron',sans-serif;
+  font-size:10px;
+}
+
+#toast {
+  position:fixed;
+  bottom:20px;
+  left:50%;
+  transform:translateX(-50%);
+  background:var(--red);
+  color:white;
+  padding:12px 20px;
+  opacity:0;
+  transition:.2s;
+  z-index:30;
+  pointer-events:none;
+}
+
+#toast.show {
+  opacity:1;
+}
+
+@media(min-width:650px) {
+  .products {
+    grid-template-columns:repeat(3,1fr);
+  }
+  .media-grid {
+    grid-template-columns:1fr 1fr;
+  }
+}
+</style>
 </head>
+
 <body>
-  <div class="ambient ambient-one"></div><div class="ambient ambient-two"></div>
-  <header class="topbar">
-    <a class="brand" href="#home" aria-label="BLG MAFIA accueil">
-      <span class="brand-mark">BLG</span><span class="brand-name">MAFIA</span>
-    </a>
-    <span class="status"><i></i> RED THUNDER</span>
-    <button class="icon-button cart-shortcut" id="cartShortcut" aria-label="Voir le panier">PANIER <b id="cartCount">0</b></button>
-  </header>
 
-  <main>
-    <section class="hero panel" id="home">
-      <div class="hero-grid"></div>
-      <p class="eyebrow">BLG INDUSTRY <span>///</span> MINI APP</p>
-      <h1>ENTER THE<br><em>THUNDER</em></h1>
-      <p class="hero-copy">Une expérience intense. Une interface sans détour.</p>
-      <a class="primary-button" href="#catalogue">DÉCOUVRIR <span>↗</span></a>
-      <div class="hero-stamp">EST.<br>BLG</div>
-    </section>
+<header>
+  <div class="logo">BLG MAFIA</div>
+  <button class="cart-button" onclick="goToCart()">
+    PANIER (<span id="cartCount">0</span>)
+  </button>
+</header>
 
-    <section class="section" id="catalogue">
-      <div class="section-heading">
-        <div><p class="eyebrow">01 / COLLECTION</p><h2>LE CATALOGUE</h2></div>
-        <span class="section-index">01—03</span>
+<div class="hero">
+  <h1>BLG <span>MAFIA</span></h1>
+  <p>WELCOME TO THE RED THUNDER EXPERIENCE</p>
+  <a href="#catalogue" class="primary">ENTRER DANS L'UNIVERS</a>
+</div>
+
+<main class="container">
+
+<section id="catalogue">
+  <h2 class="section-title">COLLECTIONS</h2>
+
+  <div class="categories" id="categories"></div>
+
+  <div class="products" id="products"></div>
+
+  <p class="note">
+    Articles et tarifs fictifs de démonstration.
+  </p>
+</section>
+
+<section id="panier">
+  <h2 class="section-title">MON PANIER</h2>
+
+  <div class="cart">
+    <div id="cartItems">
+      <p class="note">Ton panier est vide.</p>
+    </div>
+
+    <div class="total">
+      <span>TOTAL DÉMO</span>
+      <strong id="total">0,00 €</strong>
+    </div>
+
+    <button class="clear" onclick="clearCart()">
+      VIDER LE PANIER
+    </button>
+
+    <p class="note">
+      Panier de démonstration uniquement.
+      Aucun paiement ni aucune commande ne sont transmis.
+    </p>
+  </div>
+</section>
+
+<section id="media">
+  <h2 class="section-title">MEDIA ROOM</h2>
+
+  <div class="media-grid">
+    <video controls playsinline>
+      <source src="videos/clip-01.mp4" type="video/mp4">
+    </video>
+
+    <video controls playsinline>
+      <source src="videos/clip-02.mp4" type="video/mp4">
+    </video>
+  </div>
+
+  <p class="note">
+    Les vidéos sont facultatives.
+    Dépose les fichiers MP4 dans un dossier nommé videos.
+  </p>
+</section>
+
+<section class="community">
+  <h2>BLG COMMUNITY</h2>
+  <p>Retrouve notre espace Telegram.</p>
+
+  <a href="https://t.me/blgindustrybot?profile"
+     target="_blank" rel="noopener">
+    OUVRIR TELEGRAM ↗
+  </a>
+</section>
+
+</main>
+
+<footer>
+  BLG MAFIA · RED THUNDER · <span id="year"></span>
+</footer>
+
+<div id="toast"></div>
+
+<script>
+/* TELEGRAM MINI APP */
+
+const tg = window.Telegram?.WebApp;
+
+if (tg) {
+  tg.ready();
+  tg.expand();
+
+  try {
+    tg.setHeaderColor("#090909");
+    tg.setBackgroundColor("#080808");
+  } catch(e) {}
+}
+
+/* ARTICLES DE DEMONSTRATION */
+
+const products = [
+  {
+    id:1,
+    category:"COLLECTION 01",
+    name:"T-shirt BLG",
+    description:"Article textile de démonstration.",
+    price:24,
+    mark:"BLG"
+  },
+  {
+    id:2,
+    category:"COLLECTION 01",
+    name:"Hoodie Thunder",
+    description:"Sweat à capuche de démonstration.",
+    price:54,
+    mark:"⚡"
+  },
+  {
+    id:3,
+    category:"COLLECTION 01",
+    name:"Casquette",
+    description:"Accessoire de démonstration.",
+    price:19,
+    mark:"CAP"
+  },
+  {
+    id:4,
+    category:"COLLECTION 02",
+    name:"Sticker Pack",
+    description:"Lot de stickers de démonstration.",
+    price:6,
+    mark:"★"
+  },
+  {
+    id:5,
+    category:"COLLECTION 02",
+    name:"Tote Bag",
+    description:"Sac en toile de démonstration.",
+    price:12,
+    mark:"BAG"
+  },
+  {
+    id:6,
+    category:"COLLECTION 03",
+    name:"Poster BLG",
+    description:"Affiche décorative de démonstration.",
+    price:15,
+    mark:"RED"
+  }
+];
+
+let activeCategory = "TOUT";
+let cart = {};
+
+const categories = [
+  "TOUT",
+  "COLLECTION 01",
+  "COLLECTION 02",
+  "COLLECTION 03"
+];
+
+function money(value) {
+  return new Intl.NumberFormat("fr-FR", {
+    style:"currency",
+    currency:"EUR"
+  }).format(value);
+}
+
+/* NOTIFICATION */
+
+function notify(message) {
+  const toast = document.getElementById("toast");
+  toast.textContent = message;
+  toast.classList.add("show");
+
+  clearTimeout(window.toastTimer);
+
+  window.toastTimer = setTimeout(() => {
+    toast.classList.remove("show");
+  },1800);
+
+  if (tg?.HapticFeedback) {
+    tg.HapticFeedback.impactOccurred("light");
+  }
+}
+
+/* CATEGORIES */
+
+function renderCategories() {
+  document.getElementById("categories").innerHTML =
+    categories.map(category => `
+      <button
+        class="category ${activeCategory === category ? "active" : ""}"
+        onclick="selectCategory('${category}')">
+        ${category}
+      </button>
+    `).join("");
+}
+
+function selectCategory(category) {
+  activeCategory = category;
+  renderCategories();
+  renderProducts();
+}
+
+/* ARTICLES */
+
+function renderProducts() {
+  const visible = activeCategory === "TOUT"
+    ? products
+    : products.filter(p => p.category === activeCategory);
+
+  document.getElementById("products").innerHTML =
+    visible.map(p => `
+      <article class="product">
+        <div class="product-image">${p.mark}</div>
+
+        <h3>${p.name}</h3>
+
+        <p>${p.description}</p>
+
+        <div class="product-bottom">
+          <span class="price">${money(p.price)}</span>
+
+          <button class="add" onclick="addToCart(${p.id})">
+            AJOUTER +
+          </button>
+        </div>
+      </article>
+    `).join("");
+}
+
+/* PANIER */
+
+function addToCart(id) {
+  cart[id] = (cart[id] || 0) + 1;
+  renderCart();
+  notify("ARTICLE AJOUTÉ");
+}
+
+function changeQuantity(id, amount) {
+  cart[id] = (cart[id] || 0) + amount;
+
+  if (cart[id] <= 0) {
+    delete cart[id];
+  }
+
+  renderCart();
+}
+
+function removeItem(id) {
+  delete cart[id];
+  renderCart();
+}
+
+function clearCart() {
+  cart = {};
+  renderCart();
+  notify("PANIER VIDÉ");
+}
+
+function renderCart() {
+  const entries = Object.entries(cart);
+
+  let count = 0;
+  let total = 0;
+
+  entries.forEach(([id, quantity]) => {
+    const product = products.find(p => p.id == id);
+    count += quantity;
+    total += product.price * quantity;
+  });
+
+  document.getElementById("cartCount").textContent = count;
+  document.getElementById("total").textContent = money(total);
+
+  const container = document.getElementById("cartItems");
+
+  if (entries.length === 0) {
+    container.innerHTML =
+      '<p class="note">Ton panier est vide.</p>';
+    return;
+  }
+
+  container.innerHTML = entries.map(([id, quantity]) => {
+    const product = products.find(p => p.id == id);
+
+    return `
+      <div class="cart-item">
+        <div>
+          <strong>${product.name}</strong>
+          <div class="note">${money(product.price)}</div>
+        </div>
+
+        <div class="cart-controls">
+          <button onclick="changeQuantity(${id},-1)">−</button>
+          <span>${quantity}</span>
+          <button onclick="changeQuantity(${id},1)">+</button>
+          <button onclick="removeItem(${id})">×</button>
+        </div>
       </div>
-      <div class="category-tabs" id="categoryTabs" role="tablist" aria-label="Catégories"></div>
-      <div class="product-grid" id="productGrid"></div>
-      <p class="demo-note">Catalogue de démonstration : remplace les articles et visuels par ceux de ton activité autorisée.</p>
-    </section>
+    `;
+  }).join("");
+}
 
-    <section class="section cart-section" id="panier">
-      <div class="section-heading">
-        <div><p class="eyebrow">02 / SÉLECTION</p><h2>TON PANIER</h2></div>
-        <span class="section-index">02—03</span>
-      </div>
-      <div class="cart-box">
-        <div id="cartItems" class="cart-items"><p class="empty-cart">Ton panier est encore vide.</p></div>
-        <div class="cart-total"><span>TOTAL DÉMO</span><strong id="cartTotal">0,00 €</strong></div>
-        <button class="secondary-button" id="clearCart">VIDER LE PANIER</button>
-        <p class="demo-note">Panier de test uniquement. Aucun paiement, aucune commande et aucune transmission de données ne sont effectués.</p>
-      </div>
-    </section>
+function goToCart() {
+  document.getElementById("panier").scrollIntoView({
+    behavior:"smooth"
+  });
+}
 
-    <section class="section" id="media">
-      <div class="section-heading">
-        <div><p class="eyebrow">03 / IMMERSION</p><h2>MEDIA ROOM</h2></div>
-        <span class="section-index">03—03</span>
-      </div>
-      <div class="media-grid">
-        <video controls playsinline preload="metadata" poster="" aria-label="Vidéo de présentation 1">
-          <source src="videos/clip-01.mp4" type="video/mp4">
-          Ton navigateur ne prend pas en charge la vidéo.
-        </video>
-        <video controls playsinline preload="metadata" aria-label="Vidéo de présentation 2">
-          <source src="videos/clip-02.mp4" type="video/mp4">
-          Ton navigateur ne prend pas en charge la vidéo.
-        </video>
-      </div>
-      <p class="demo-note">Ajoute tes vidéos MP4 dans le dossier <code>videos</code> avec les noms clip-01.mp4 et clip-02.mp4.</p>
-    </section>
+/* INITIALISATION */
 
-    <section class="community panel">
-      <p class="eyebrow">STAY CONNECTED</p>
-      <h2>LA COMMUNAUTÉ<br><em>BLG</em></h2>
-      <p>Retrouve les actualités et les informations de la communauté.</p>
-      <a class="secondary-link" href="https://t.me/blgindustrybot?profile" target="_blank" rel="noopener">OUVRIR TELEGRAM ↗</a>
-    </section>
-  </main>
+document.getElementById("year").textContent =
+  new Date().getFullYear();
 
-  <footer><span>BLG MAFIA</span><span>RED THUNDER EXPERIENCE</span><span>© <span id="year"></span></span></footer>
-  <div class="toast" id="toast" role="status" aria-live="polite"></div>
-  <script src="app.js"></script>
+renderCategories();
+renderProducts();
+renderCart();
+</script>
+
 </body>
 </html>
