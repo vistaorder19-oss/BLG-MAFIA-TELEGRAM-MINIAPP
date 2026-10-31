@@ -1,92 +1,242 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="theme-color" content="#080808">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NEON THUNDER</title>
 
-    <title>BLG MAFIA</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;800;900&family=Rajdhani:wght@400;600;700&display=swap');
 
-    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-    <link rel="stylesheet" href="style.css">
+body {
+    background: #050510;
+    color: white;
+    font-family: 'Rajdhani', sans-serif;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+/* BACKGROUND ELECTRIQUE */
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background:
+        radial-gradient(circle at 20% 30%, #152b68 0%, transparent 35%),
+        radial-gradient(circle at 80% 70%, #47105d 0%, transparent 35%),
+        linear-gradient(135deg, #050510, #090d24, #10051c);
+    z-index: -3;
+}
+
+/* ECLAIRS */
+
+.lightning {
+    position: fixed;
+    width: 3px;
+    height: 350px;
+    background: linear-gradient(
+        transparent,
+        #00eaff,
+        white,
+        #a000ff,
+        transparent
+    );
+    filter: blur(3px);
+    opacity: 0;
+    z-index: -1;
+    animation: thunder 5s infinite;
+}
+
+.lightning.one {
+    top: 5%;
+    left: 15%;
+    transform: rotate(35deg);
+}
+
+.lightning.two {
+    top: 30%;
+    right: 15%;
+    transform: rotate(-40deg);
+    animation-delay: 2s;
+}
+
+.lightning.three {
+    bottom: 0;
+    left: 70%;
+    transform: rotate(25deg);
+    animation-delay: 3.5s;
+}
+
+@keyframes thunder {
+    0%, 85%, 100% { opacity: 0; }
+    87% { opacity: .9; }
+    89% { opacity: .1; }
+    91% { opacity: .8; }
+    94% { opacity: 0; }
+}
+
+/* CONTAINER */
+
+.container {
+    max-width: 500px;
+    margin: auto;
+    padding: 30px 20px;
+}
+
+/* HEADER */
+
+header {
+    text-align: center;
+    padding: 40px 10px;
+}
+
+.logo {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 32px;
+    font-weight: 900;
+    color: #fff;
+    text-shadow:
+        0 0 10px #00eaff,
+        0 0 25px #0077ff,
+        0 0 50px #8b00ff;
+    letter-spacing: 4px;
+}
+
+.subtitle {
+    color: #00eaff;
+    letter-spacing: 5px;
+    margin-top: 12px;
+    font-size: 13px;
+}
+
+/* CARTE */
+
+.card {
+    background: rgba(10, 18, 45, 0.75);
+    border: 1px solid rgba(0, 234, 255, .5);
+    border-radius: 20px;
+    padding: 25px;
+    margin-top: 25px;
+    backdrop-filter: blur(15px);
+    box-shadow:
+        0 0 15px rgba(0, 234, 255, .15),
+        0 0 40px rgba(110, 0, 255, .12);
+    transition: .3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    border-color: #00eaff;
+    box-shadow: 0 0 30px rgba(0, 234, 255, .35);
+}
+
+.card h2 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 18px;
+    color: #00eaff;
+    margin-bottom: 15px;
+}
+
+.card p {
+    font-size: 17px;
+    color: #c7d5ff;
+    line-height: 1.6;
+}
+
+/* BOUTON */
+
+.button {
+    display: block;
+    width: 100%;
+    padding: 16px;
+    margin-top: 25px;
+    border: none;
+    border-radius: 12px;
+    background: linear-gradient(90deg, #0077ff, #8b00ff);
+    color: white;
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 800;
+    font-size: 13px;
+    letter-spacing: 2px;
+    cursor: pointer;
+    box-shadow: 0 0 20px rgba(0, 140, 255, .5);
+    transition: .3s;
+}
+
+.button:hover {
+    box-shadow: 0 0 35px #00eaff;
+    transform: scale(1.03);
+}
+
+/* FOOTER */
+
+footer {
+    text-align: center;
+    padding: 40px 10px;
+    color: #6478ad;
+    font-size: 13px;
+    letter-spacing: 2px;
+}
+
+</style>
 </head>
 
 <body>
 
-<div class="background-effects">
-    <div class="lightning lightning-1"></div>
-    <div class="lightning lightning-2"></div>
-    <div class="particles" id="particles"></div>
-</div>
+<div class="lightning one"></div>
+<div class="lightning two"></div>
+<div class="lightning three"></div>
 
-<header class="header">
-    <div class="logo">BLG <span>MAFIA</span></div>
-    <div class="status">
-        <span class="status-dot"></span>
-        SYSTEM ONLINE
-    </div>
+<div class="container">
+
+<header>
+    <div class="logo">⚡ THUNDER</div>
+    <div class="subtitle">WELCOME TO THE ELECTRIC WORLD</div>
 </header>
 
-<main class="container">
+<div class="card">
+    <h2>⚡ EXPERIENCE</h2>
+    <p>
+        Bienvenue dans un univers électrique.
+        Une expérience futuriste, des couleurs
+        néon et une énergie sans limites.
+    </p>
+</div>
 
-    <section class="hero">
-        <div class="hero-badge">⚡ RED THUNDER EDITION</div>
+<div class="card">
+    <h2>🔥 DISCOVER</h2>
+    <p>
+        Explore notre univers et découvre
+        une interface conçue pour offrir
+        une expérience unique.
+    </p>
+</div>
 
-        <h1>
-            WELCOME TO<br>
-            <span>BLG MAFIA</span>
-        </h1>
+<div class="card">
+    <h2>🌌 NEXT LEVEL</h2>
+    <p>
+        Plonge dans une ambiance cyberpunk
+        où chaque détail brille d'une énergie
+        nouvelle.
+    </p>
+</div>
 
-        <p>
-            Enter the darkness.<br>
-            Experience the power.
-        </p>
-
-        <button class="main-button" id="enterButton">
-            ENTER THE EXPERIENCE ⚡
-        </button>
-    </section>
-
-    <section class="cards">
-
-        <article class="card">
-            <div class="card-icon">🔥</div>
-            <h2>OUR UNIVERSE</h2>
-            <p>Découvre l'univers BLG Mafia et ses fonctionnalités.</p>
-            <button class="card-button" data-action="universe">
-                DISCOVER
-            </button>
-        </article>
-
-        <article class="card">
-            <div class="card-icon">⚡</div>
-            <h2>POWER MODE</h2>
-            <p>Une expérience interactive dans une ambiance électrique.</p>
-            <button class="card-button" data-action="power">
-                ACTIVATE
-            </button>
-        </article>
-
-        <article class="card">
-            <div class="card-icon">👑</div>
-            <h2>COMMUNITY</h2>
-            <p>Retrouve la communauté BLG Mafia.</p>
-            <button class="card-button" data-action="community">
-                JOIN
-            </button>
-        </article>
-
-    </section>
-
-</main>
+<button class="button" onclick="alert('WELCOME TO THUNDER ⚡')">
+    ENTER THE EXPERIENCE
+</button>
 
 <footer>
-    <div>BLG MAFIA © 2026</div>
-    <div class="footer-line">POWERED BY RED THUNDER ⚡</div>
+    POWERED BY NEON ENERGY ⚡
 </footer>
 
-<script src="script.js"></script>
+</div>
 
 </body>
 </html>
