@@ -1,0 +1,309 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Rajdhani:wght@400;600;700&display=swap');
+
+:root {
+    --red: #ff1010;
+    --dark-red: #850000;
+    --black: #050505;
+    --white: #ffffff;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: var(--black);
+    color: white;
+    font-family: 'Rajdhani', sans-serif;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+.background-effects {
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    overflow: hidden;
+
+    background:
+        radial-gradient(circle at 20% 30%, #350000 0%, transparent 40%),
+        radial-gradient(circle at 80% 70%, #260000 0%, transparent 40%),
+        #050505;
+}
+
+.background-effects::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        120deg,
+        transparent,
+        rgba(255,0,0,.08),
+        transparent
+    );
+    animation: atmosphere 5s infinite alternate;
+}
+
+@keyframes atmosphere {
+    from { opacity: .3; }
+    to { opacity: 1; }
+}
+
+/* LIGHTNING */
+
+.lightning {
+    position: absolute;
+    width: 3px;
+    height: 400px;
+
+    background: linear-gradient(
+        transparent,
+        #ff0000,
+        white,
+        #ff0000,
+        transparent
+    );
+
+    filter: blur(2px);
+    opacity: 0;
+
+    animation: thunder 4s infinite;
+}
+
+.lightning-1 {
+    top: 0;
+    left: 15%;
+    transform: rotate(35deg);
+}
+
+.lightning-2 {
+    top: 30%;
+    right: 15%;
+    transform: rotate(-35deg);
+    animation-delay: 2s;
+}
+
+@keyframes thunder {
+    0%, 85%, 100% { opacity: 0; }
+    87% { opacity: 1; }
+    89% { opacity: .2; }
+    91% { opacity: .9; }
+    94% { opacity: 0; }
+}
+
+/* HEADER */
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 25px 20px;
+    border-bottom: 1px solid rgba(255,0,0,.2);
+}
+
+.logo {
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 900;
+    font-size: 21px;
+    letter-spacing: 2px;
+}
+
+.logo span {
+    color: var(--red);
+    text-shadow: 0 0 15px red;
+}
+
+.status {
+    color: #aaa;
+    font-size: 11px;
+    letter-spacing: 1px;
+}
+
+.status-dot {
+    display: inline-block;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #ff1010;
+    box-shadow: 0 0 10px red;
+    margin-right: 5px;
+}
+
+/* MAIN */
+
+.container {
+    max-width: 600px;
+    margin: auto;
+    padding: 30px 20px;
+}
+
+.hero {
+    text-align: center;
+    padding: 65px 5px 45px;
+}
+
+.hero-badge {
+    display: inline-block;
+    padding: 9px 15px;
+    border: 1px solid #ff2020;
+    border-radius: 30px;
+    color: #ff4545;
+    font-size: 11px;
+    letter-spacing: 2px;
+    margin-bottom: 25px;
+    box-shadow: 0 0 15px #ff000033;
+}
+
+.hero h1 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: clamp(27px, 8vw, 45px);
+    line-height: 1.4;
+    font-weight: 900;
+}
+
+.hero h1 span {
+    color: #ff1010;
+    text-shadow:
+        0 0 10px red,
+        0 0 30px #ff0000;
+}
+
+.hero p {
+    color: #aaa;
+    font-size: 19px;
+    line-height: 1.6;
+    margin: 20px 0 30px;
+}
+
+/* BUTTON */
+
+.main-button {
+    width: 100%;
+    max-width: 350px;
+    padding: 17px;
+    border: none;
+    border-radius: 10px;
+
+    background: linear-gradient(
+        90deg,
+        #790000,
+        #ff1010,
+        #790000
+    );
+
+    color: white;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 12px;
+    font-weight: 900;
+    letter-spacing: 1px;
+
+    box-shadow: 0 0 25px #ff000055;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.main-button:active {
+    transform: scale(.96);
+}
+
+/* CARDS */
+
+.cards {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 18px;
+}
+
+.card {
+    padding: 25px;
+    border-radius: 15px;
+
+    background: rgba(25, 5, 5, .85);
+    border: 1px solid #650000;
+
+    box-shadow: 0 0 20px #ff000018;
+    transition: .3s;
+}
+
+.card:hover {
+    border-color: red;
+    box-shadow: 0 0 25px #ff000044;
+    transform: translateY(-4px);
+}
+
+.card-icon {
+    font-size: 30px;
+    margin-bottom: 15px;
+}
+
+.card h2 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 16px;
+    color: #ff2929;
+    margin-bottom: 12px;
+}
+
+.card p {
+    color: #bbb;
+    font-size: 17px;
+    line-height: 1.5;
+}
+
+.card-button {
+    margin-top: 20px;
+    padding: 11px 20px;
+    background: transparent;
+    border: 1px solid red;
+    color: white;
+    border-radius: 6px;
+    font-family: 'Orbitron', sans-serif;
+    cursor: pointer;
+}
+
+.card-button:hover {
+    background: red;
+    box-shadow: 0 0 15px red;
+}
+
+/* FOOTER */
+
+footer {
+    text-align: center;
+    padding: 35px 15px;
+    color: #777;
+    font-size: 12px;
+    letter-spacing: 2px;
+}
+
+.footer-line {
+    color: #ff2020;
+    margin-top: 10px;
+}
+
+/* PARTICLES */
+
+.particle {
+    position: absolute;
+    width: 3px;
+    height: 3px;
+    background: red;
+    border-radius: 50%;
+    box-shadow: 0 0 10px red;
+    animation: float 5s linear infinite;
+}
+
+@keyframes float {
+    from {
+        transform: translateY(100vh);
+        opacity: 0;
+    }
+
+    20% { opacity: 1; }
+
+    to {
+        transform: translateY(-100px);
+        opacity: 0;
+    }
+}
