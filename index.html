@@ -1,92 +1,87 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="theme-color" content="#080808">
-
-    <title>BLG MAFIA</title>
-
-    <script src="https://telegram.org/js/telegram-web-app.js"></script>
-
-    <link rel="stylesheet" href="style.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#090909">
+  <title>BLG MAFIA | RED THUNDER</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;600;700;800;900&family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="https://telegram.org/js/telegram-web-app.js"></script>
 </head>
-
 <body>
+  <div class="ambient ambient-one"></div><div class="ambient ambient-two"></div>
+  <header class="topbar">
+    <a class="brand" href="#home" aria-label="BLG MAFIA accueil">
+      <span class="brand-mark">BLG</span><span class="brand-name">MAFIA</span>
+    </a>
+    <span class="status"><i></i> RED THUNDER</span>
+    <button class="icon-button cart-shortcut" id="cartShortcut" aria-label="Voir le panier">PANIER <b id="cartCount">0</b></button>
+  </header>
 
-<div class="background-effects">
-    <div class="lightning lightning-1"></div>
-    <div class="lightning lightning-2"></div>
-    <div class="particles" id="particles"></div>
-</div>
-
-<header class="header">
-    <div class="logo">BLG <span>MAFIA</span></div>
-    <div class="status">
-        <span class="status-dot"></span>
-        SYSTEM ONLINE
-    </div>
-</header>
-
-<main class="container">
-
-    <section class="hero">
-        <div class="hero-badge">⚡ RED THUNDER EDITION</div>
-
-        <h1>
-            WELCOME TO<br>
-            <span>BLG MAFIA</span>
-        </h1>
-
-        <p>
-            Enter the darkness.<br>
-            Experience the power.
-        </p>
-
-        <button class="main-button" id="enterButton">
-            ENTER THE EXPERIENCE ⚡
-        </button>
+  <main>
+    <section class="hero panel" id="home">
+      <div class="hero-grid"></div>
+      <p class="eyebrow">BLG INDUSTRY <span>///</span> MINI APP</p>
+      <h1>ENTER THE<br><em>THUNDER</em></h1>
+      <p class="hero-copy">Une expérience intense. Une interface sans détour.</p>
+      <a class="primary-button" href="#catalogue">DÉCOUVRIR <span>↗</span></a>
+      <div class="hero-stamp">EST.<br>BLG</div>
     </section>
 
-    <section class="cards">
-
-        <article class="card">
-            <div class="card-icon">🔥</div>
-            <h2>OUR UNIVERSE</h2>
-            <p>Découvre l'univers BLG Mafia et ses fonctionnalités.</p>
-            <button class="card-button" data-action="universe">
-                DISCOVER
-            </button>
-        </article>
-
-        <article class="card">
-            <div class="card-icon">⚡</div>
-            <h2>POWER MODE</h2>
-            <p>Une expérience interactive dans une ambiance électrique.</p>
-            <button class="card-button" data-action="power">
-                ACTIVATE
-            </button>
-        </article>
-
-        <article class="card">
-            <div class="card-icon">👑</div>
-            <h2>COMMUNITY</h2>
-            <p>Retrouve la communauté BLG Mafia.</p>
-            <button class="card-button" data-action="community">
-                JOIN
-            </button>
-        </article>
-
+    <section class="section" id="catalogue">
+      <div class="section-heading">
+        <div><p class="eyebrow">01 / COLLECTION</p><h2>LE CATALOGUE</h2></div>
+        <span class="section-index">01—03</span>
+      </div>
+      <div class="category-tabs" id="categoryTabs" role="tablist" aria-label="Catégories"></div>
+      <div class="product-grid" id="productGrid"></div>
+      <p class="demo-note">Catalogue de démonstration : remplace les articles et visuels par ceux de ton activité autorisée.</p>
     </section>
 
-</main>
+    <section class="section cart-section" id="panier">
+      <div class="section-heading">
+        <div><p class="eyebrow">02 / SÉLECTION</p><h2>TON PANIER</h2></div>
+        <span class="section-index">02—03</span>
+      </div>
+      <div class="cart-box">
+        <div id="cartItems" class="cart-items"><p class="empty-cart">Ton panier est encore vide.</p></div>
+        <div class="cart-total"><span>TOTAL DÉMO</span><strong id="cartTotal">0,00 €</strong></div>
+        <button class="secondary-button" id="clearCart">VIDER LE PANIER</button>
+        <p class="demo-note">Panier de test uniquement. Aucun paiement, aucune commande et aucune transmission de données ne sont effectués.</p>
+      </div>
+    </section>
 
-<footer>
-    <div>BLG MAFIA © 2026</div>
-    <div class="footer-line">POWERED BY RED THUNDER ⚡</div>
-</footer>
+    <section class="section" id="media">
+      <div class="section-heading">
+        <div><p class="eyebrow">03 / IMMERSION</p><h2>MEDIA ROOM</h2></div>
+        <span class="section-index">03—03</span>
+      </div>
+      <div class="media-grid">
+        <video controls playsinline preload="metadata" poster="" aria-label="Vidéo de présentation 1">
+          <source src="videos/clip-01.mp4" type="video/mp4">
+          Ton navigateur ne prend pas en charge la vidéo.
+        </video>
+        <video controls playsinline preload="metadata" aria-label="Vidéo de présentation 2">
+          <source src="videos/clip-02.mp4" type="video/mp4">
+          Ton navigateur ne prend pas en charge la vidéo.
+        </video>
+      </div>
+      <p class="demo-note">Ajoute tes vidéos MP4 dans le dossier <code>videos</code> avec les noms clip-01.mp4 et clip-02.mp4.</p>
+    </section>
 
-<script src="script.js"></script>
+    <section class="community panel">
+      <p class="eyebrow">STAY CONNECTED</p>
+      <h2>LA COMMUNAUTÉ<br><em>BLG</em></h2>
+      <p>Retrouve les actualités et les informations de la communauté.</p>
+      <a class="secondary-link" href="https://t.me/blgindustrybot?profile" target="_blank" rel="noopener">OUVRIR TELEGRAM ↗</a>
+    </section>
+  </main>
 
+  <footer><span>BLG MAFIA</span><span>RED THUNDER EXPERIENCE</span><span>© <span id="year"></span></span></footer>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script src="app.js"></script>
 </body>
 </html>
