@@ -377,11 +377,11 @@ nav {
 <nav>
 
   <button class="navbtn" onclick="goHome()">
-    ⌂ <b>Boutique</b>
+    🏬 <b>Boutique</b>
   </button>
 
   <button class="navbtn" onclick="showCart()">
-    ▣ <b>Panier</b>
+    🛒 <b>Panier</b>
     (<span id="cartCount">0</span>)
   </button>
 
@@ -394,24 +394,24 @@ nav {
 const data = {
 
   '🧼 TOP MOUSSE 🧼': [
-    {w:'4 g',p:20🥊},
-    {w:'10 g',p:50🛒},
-    {w:'25 g',p:120🗽},
-    {w:'50 g',p:200🏅}
+{w:'4 g',p:20,emoji:'🥊'},
+{w:'10 g',p:50,emoji:'🛒'},
+{w:'25 g',p:120,emoji:'🗽'},
+{w:'50 g',p:200,emoji:'🏅'}
   ],
 
   '🍫 FILTRÉ 🍫': [
-    {w:'2 g',p:20},
-    {w:'5 g',p:40},
-    {w:'10 g',p:70},
-    {w:'50 g',p:300}
+{w:'4 g',p:20,emoji:'🥊'},
+{w:'10 g',p:50,emoji:'🛒'},
+{w:'25 g',p:120,emoji:'🗽'},
+{w:'50 g',p:200,emoji:'🏅'}
   ],
 
   '🍁 HAZE 🍁': [
-    {w:'3 g',p:20},
-    {w:'6 g',p:40},
-    {w:'10 g',p:60},
-    {w:'25 g',p:140}
+{w:'4 g',p:20,emoji:'🥊'},
+{w:'10 g',p:50,emoji:'🛒'},
+{w:'25 g',p:120,emoji:'🗽'},
+{w:'50 g',p:200,emoji:'🏅'}
   ]
 
 };
@@ -539,7 +539,7 @@ function showCategory(name) {
         <b>${x.w}</b>
 
         <div class="price">
-          ${euro(x.p)}
+         ${euro(x.p)} ${x.emoji || ''}
         </div>
 
       </div>
