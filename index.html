@@ -8,6 +8,73 @@
 <meta name="theme-color" content="#090909">
 <title>BLG INDUSTRY | DIRECTION</title>
 <style>
+body.locked > header,
+body.locked > main,
+body.locked > footer,
+body.locked > nav {
+    display: none !important;
+}
+
+#subscriptionLock {
+    position: fixed;
+    inset: 0;
+    z-index: 99999;
+    background: #080808;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.lock-card {
+    width: 100%;
+    max-width: 400px;
+    background: #151515;
+    border: 1px solid #e01924;
+    border-radius: 18px;
+    padding: 30px 20px;
+    text-align: center;
+    box-shadow: 0 0 30px #e0192440;
+}
+
+.lock-card h1 {
+    color: #e01924;
+    margin: 15px 0;
+    letter-spacing: 3px;
+}
+
+.lock-card h2 {
+    margin-bottom: 15px;
+}
+
+.lock-card p {
+    color: #bbb;
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+.subscribe-button,
+.verify-button {
+    display: block;
+    width: 100%;
+    padding: 15px;
+    margin-top: 15px;
+    border-radius: 9px;
+    font-weight: bold;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.subscribe-button {
+    background: #e01924;
+    color: white;
+}
+
+.verify-button {
+    background: #242424;
+    color: white;
+    border: 1px solid #e01924;
+}
 :root {
   color-scheme: dark;
   --red: #e01924;
@@ -355,7 +422,33 @@ body * {
 }
 </style>
 </head>
-<body>
+<body class="locked">
+  <div id="subscriptionLock">
+    <div class="lock-card">
+        <div style="font-size:55px">🔒</div>
+
+        <h1>BLG MAFIA</h1>
+        <h2>ACCÈS RÉSERVÉ</h2>
+
+        <p>
+            Pour accéder à la Mini App,
+            tu dois être abonné à notre canal Telegram.
+        </p>
+
+        <a href="https://t.me/+8XmiqBUZDJNkNjZk"
+           target="_blank"
+           class="subscribe-button">
+            📢 REJOINDRE LE CANAL
+        </a>
+
+        <button onclick="verifySubscription()"
+                class="verify-button">
+            ✓ VÉRIFIER MON ABONNEMENT
+        </button>
+
+        <p id="verificationMessage"></p>
+    </div>
+</div>
 <header>
   <img src="blg-logo.jpeg" alt="BLG INDUSTRY">
   <h1> 🥷BLG INDUSTRY🥷 </h1>
