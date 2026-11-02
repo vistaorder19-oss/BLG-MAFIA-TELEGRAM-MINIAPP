@@ -1,75 +1,22 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
- <script src="https://telegram.org/js/telegram-web-app.js"></script><link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Black+Ops+One&display=swap" rel="stylesheet">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#090909">
+
 <title>BLG INDUSTRY | DIRECTION</title>
+
+<script src="https://telegram.org/js/telegram-web-app.js"></script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Black+Ops+One&display=swap" rel="stylesheet">
+
 <style>
 
-#subscriptionLock {
-    position: fixed;
-    inset: 0;
-    z-index: 99999;
-    background: #080808;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
-}
-
-.lock-card {
-    width: 100%;
-    max-width: 400px;
-    background: #151515;
-    border: 1px solid #e01924;
-    border-radius: 18px;
-    padding: 30px 20px;
-    text-align: center;
-    box-shadow: 0 0 30px #e0192440;
-}
-
-.lock-card h1 {
-    color: #e01924;
-    margin: 15px 0;
-    letter-spacing: 3px;
-}
-
-.lock-card h2 {
-    margin-bottom: 15px;
-}
-
-.lock-card p {
-    color: #bbb;
-    font-size: 13px;
-    line-height: 1.6;
-}
-
-.subscribe-button,
-.verify-button {
-    display: block;
-    width: 100%;
-    padding: 15px;
-    margin-top: 15px;
-    border-radius: 9px;
-    font-weight: bold;
-    text-decoration: none;
-    cursor: pointer;
-}
-
-.subscribe-button {
-    background: #e01924;
-    color: white;
-}
-
-.verify-button {
-    background: #242424;
-    color: white;
-    border: 1px solid #e01924;
-}
 :root {
   color-scheme: dark;
   --red: #e01924;
@@ -81,19 +28,22 @@
 
 body {
   margin: 0;
-  background-color: #090000;
+  background-color: #090909;
   background-image:
     linear-gradient(
-      rgba(0, 0, 0, 0.28),
-      rgba(0, 0, 0, 0.38)
+      rgba(0,0,0,.28),
+      rgba(0,0,0,.38)
     ),
     url('./background-storm.png');
   background-size: cover;
-  background-position: center center;
+  background-position: center;
   background-repeat: no-repeat;
   background-attachment: fixed;
-  background-color: #090909;
   color: white;
+  font-family: 'Black Ops One', cursive;
+}
+
+body * {
   font-family: 'Black Ops One', cursive;
 }
 
@@ -103,24 +53,23 @@ header {
 }
 
 header img {
-  width: min(190px, 55vw);
+  width: min(190px,55vw);
   height: auto;
 }
 
-  h1 {
-  font-family: 'Black Ops One', cursive;
+h1 {
   font-size: 32px;
   font-weight: 400;
   letter-spacing: 2px;
   text-align: center;
-  color: #ffffff;
+  color: white;
   text-transform: uppercase;
   margin: 12px 0 6px;
-  text-shadow: 0 0 8px rgba(255, 255, 255, 0.25);
+  text-shadow: 0 0 8px rgba(255,255,255,.25);
 }
-  
 
-.sub, .section-title {
+.sub,
+.section-title {
   color: #aaa;
   letter-spacing: 2px;
   font-size: 12px;
@@ -136,7 +85,7 @@ main {
   margin: 18px 0;
 }
 
-/* BOUTONS ÉCLAIRS */
+/* CATÉGORIES */
 
 .category {
   position: relative;
@@ -145,12 +94,7 @@ main {
   width: 100%;
   padding: 24px 18px;
   margin: 10px 0;
-  background: linear-gradient(
-    110deg,
-    #151515,
-    #1d1011,
-    #151515
-  );
+  background: linear-gradient(110deg,#151515,#1d1011,#151515);
   border: 1px solid var(--red);
   border-radius: 9px;
   color: white;
@@ -159,9 +103,8 @@ main {
   font-weight: bold;
   letter-spacing: 2px;
   cursor: pointer;
-  box-shadow:
-    inset 0 0 18px #e0192418,
-    0 0 10px #e019241c;
+  box-shadow: inset 0 0 18px #e0192418,
+              0 0 10px #e019241c;
 }
 
 .category:before {
@@ -172,7 +115,6 @@ main {
   font-size: 45px;
   color: var(--red);
   opacity: .22;
-  transform: rotate(-12deg);
   pointer-events: none;
 }
 
@@ -188,8 +130,6 @@ main {
 }
 
 .category span {
-  position: relative;
-  z-index: 1;
   float: right;
   color: var(--red);
   font-size: 24px;
@@ -206,7 +146,8 @@ main {
   cursor: pointer;
 }
 
-.product, .cart-row {
+.product,
+.cart-row {
   background: #151515;
   border: 1px solid #333;
   border-radius: 9px;
@@ -233,7 +174,8 @@ main {
   gap: 12px;
 }
 
-.qty button, .remove {
+.qty button,
+.remove {
   background: #222;
   border: 1px solid var(--red);
   color: white;
@@ -263,7 +205,8 @@ main {
   margin: 20px 2px;
 }
 
-.empty, .notice {
+.empty,
+.notice {
   color: #888;
   text-align: center;
 }
@@ -274,18 +217,14 @@ main {
   margin: 28px 5px;
 }
 
-/* VIDÉOS PRODUITS */
+/* VIDÉOS */
 
 .video-section {
   margin: 28px 0 18px;
   padding: 18px 14px;
   border: 1px solid #572027;
   border-radius: 10px;
-  background: linear-gradient(
-    145deg,
-    #151515,
-    #0c0c0c
-  );
+  background: linear-gradient(145deg,#151515,#0c0c0c);
   box-shadow: 0 0 18px #e0192410;
 }
 
@@ -293,7 +232,14 @@ main {
   display: flex;
   align-items: center;
   gap: 10px;
-  margin-bottom: 14px;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  border: 0;
+  background: none;
+  color: white;
+  text-align: left;
+  cursor: pointer;
 }
 
 .video-mark {
@@ -315,7 +261,7 @@ main {
   max-height: 520px;
   aspect-ratio: 16 / 9;
   object-fit: contain;
-  background: #000;
+  background: black;
   border-radius: 6px;
 }
 
@@ -331,6 +277,33 @@ main {
   line-height: 1.5;
   text-align: center;
   padding: 14px 8px;
+}
+
+/* CONTACT */
+
+.contact-btn,
+.product-video {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 7px;
+  width: 100%;
+  padding: 17px;
+  margin: 18px 0;
+  border: 1px solid #229ED9;
+  border-radius: 9px;
+  background: #10232e;
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  letter-spacing: 1px;
+  text-align: center;
+}
+
+.contact-btn span,
+.product-video span {
+  color: #70cfff;
+  font-size: 14px;
 }
 
 /* NAVIGATION */
@@ -364,65 +337,21 @@ nav {
 .hidden {
   display: none !important;
 }
-.contact-btn {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 7px;
-  width: 100%;
-  padding: 17px;
-  margin: 18px 0;
-  border: 1px solid #229ED9;
-  border-radius: 9px;
-  background: #10232e;
-  color: white;
-  text-decoration: none;
-  font-weight: bold;
-  letter-spacing: 1px;
-  text-align: center;
-}
 
-.contact-btn span {
-  color: #70cfff;
-  font-size: 14px;
-}
-.product-video {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 7px;
-  width: 100%;
-  padding: 17px;
-  margin: 18px 0;
-  border: 1px solid #229ED9;
-  border-radius: 9px;
-  background: #10232e;
-  color: white;
-  text-decoration: none;
-  font-weight: bold;
-  letter-spacing: 1px;
-  text-align: center;
-}
-
-.product-video span {
-  color: #70cfff;
-  font-size: 14px;
-}
-  body,
-body * {
-  font-family: 'Black Ops One', cursive ;
-}
 </style>
 </head>
-<body
+
+<body>
 
 <header>
   <img src="blg-logo.jpeg" alt="BLG INDUSTRY">
-  <h1> 🥷BLG INDUSTRY🥷 </h1>
+  <h1>🥷BLG INDUSTRY🥷</h1>
   <div class="sub">DIRECTION</div>
 </header>
 
 <main>
+
+<!-- ACCUEIL -->
 
 <section id="home">
 
@@ -430,51 +359,78 @@ body * {
     CHOISIS TA CATÉGORIE
   </div>
 
-  <button class="category"
+  <button type="button" class="category"
   onclick="showCategory('🧼 TOP MOUSSE 🧼')">
-    🧼 TOP MOUSSE 🧼<span>›</span>
+    🧼 TOP MOUSSE 🧼 <span>›</span>
   </button>
 
-  <button class="category"
-  onclick="showCategory('🍫 DrySift 90u 🍫')">
-    🍫 DrySift 90u 🍫 <span>›</span>
+  <button type="button" class="category"
+  onclick="showCategory('🍫 DrySift 90U 🍫')">
+    🍫 DrySift 90U 🍫 <span>›</span>
   </button>
 
-  <button class="category"
+  <button type="button" class="category"
   onclick="showCategory('🍁 HAZE 🍁')">
     🍁 HAZE 🍁 <span>›</span>
   </button>
-<a class="contact-btn"
-   href="https://t.me/blgindustry1"
-   target="_blank"
-   rel="noopener">
-  ✈️ CONTACT TELEGRAM
-  <span>@blgindustry1</span>
-</a>
-<a class="product-video"
-   href="https://t.me/+AvKneA-itAQyZDE0"
-   target="_blank"
-   rel="noopener">
-  🥷📹 CANAL VIDÉO 📹🥷
-  <span>https://t.me/+AvKneA-itAQyZDE0</span>
-</a>
+
+  <a class="contact-btn"
+  href="https://t.me/blgindustry1"
+  target="_blank"
+  rel="noopener">
+
+    ✈️ CONTACT TELEGRAM
+    <span>@blgindustry1</span>
+
+  </a>
+
+  <a class="product-video"
+  href="https://t.me/+AvKneA-itAQyZDE0"
+  target="_blank"
+  rel="noopener">
+
+    🥷📹 CANAL VIDÉO 📹🥷
+    <span>CANAL TELEGRAM</span>
+
+  </a>
+
   <!-- GALERIE VIDÉOS -->
 
-<section class="video-section">
+  <section class="video-section">
 
-  <button class="video-heading" onclick="toggleVideos()">
+    <button type="button"
+    class="video-heading"
+    onclick="toggleVideos()">
 
-    <span class="video-mark">▶</span>
+      <span class="video-mark">▶</span>
 
-    <div class="section-title" style="margin:0">
-      VIDÉOS PRODUITS HD 📹✅
-    </div>
+      <div class="section-title" style="margin:0">
+        VIDÉOS PRODUITS HD 📹✅
+      </div>
 
-  </button>
+    </button>
 
-  <div id="videoGallery" style="display:none"></div>
+    <div id="videoGallery" style="display:none"></div>
+
+  </section>
 
 </section>
+
+<!-- CATALOGUE -->
+
+<section id="catalog" class="hidden">
+
+  <button class="back" onclick="goHome()">
+    ‹ RETOUR
+  </button>
+
+  <div class="section-title" id="catTitle"></div>
+
+  <div id="products"></div>
+
+</section>
+
+<!-- PANIER -->
 
 <section id="cart" class="hidden">
 
@@ -491,7 +447,7 @@ body * {
   <div class="total" id="total"></div>
 
   <p class="notice">
-    Fait une capture d'écran de ton panier 
+    Fait une capture d'écran de ton panier
     et clique sur contact
   </p>
 
@@ -519,43 +475,37 @@ body * {
 
 <script>
 
- 
-
-/* TARIFS DU CATALOGUE */
+/* CATALOGUE */
 
 const data = {
 
   '🧼 TOP MOUSSE 🧼': [
-{w:'4 g',p:20,emoji:'🍫'},
-{w:'10 g',p:50,emoji:'🎰'},
-{w:'25 g',p:120,emoji:'⚡️'},
-{w:'50 g',p:200,emoji:'🎯'}
+    {w:'4 g',p:20,emoji:'🍫'},
+    {w:'10 g',p:50,emoji:'🎰'},
+    {w:'25 g',p:120,emoji:'⚡️'},
+    {w:'50 g',p:200,emoji:'🎯'}
   ],
 
   '🍫 DrySift 90U 🍫': [
-{w:'≈3g',p:20,emoji:'🧠'},
-{w:'6g',p:40,emoji:'🐍'},
-{w:'10g',p:70,emoji:'🦂'},
-{w:'25g',p:240,emoji:'💥'},
-{w:'50g',p:300,emoji:'🎾'}
+    {w:'≈3g',p:20,emoji:'🧠'},
+    {w:'6g',p:40,emoji:'🐍'},
+    {w:'10g',p:70,emoji:'🦂'},
+    {w:'25g',p:240,emoji:'💥'},
+    {w:'50g',p:300,emoji:'🎾'}
   ],
 
   '🍁 HAZE 🍁': [
-{w:'≈3g',p:20,emoji:'🎰'},
-{w:'6g',p:40,emoji:'🗽'},
-{w:'10g',p:70,emoji:'👽'},
-{w:'25g',p:240,emoji:'😈'},
-{w:'50g',p:300,emoji:'🫀'},
+    {w:'≈3g',p:20,emoji:'🎰'},
+    {w:'6g',p:40,emoji:'🗽'},
+    {w:'10g',p:70,emoji:'👽'},
+    {w:'25g',p:240,emoji:'😈'},
+    {w:'50g',p:300,emoji:'🫀'}
   ]
 
 };
 
 
-/*
-====================================
-GESTION DES VIDÉOS PRODUITS
-====================================
-*/
+/* VIDÉOS */
 
 const productVideos = [
   {
@@ -564,12 +514,11 @@ const productVideos = [
   }
 ];
 
-
-/* AFFICHAGE DES VIDÉOS */
-
 function renderVideos() {
 
   const box = document.getElementById('videoGallery');
+
+  if (!box) return;
 
   if (!productVideos.length) {
 
@@ -605,21 +554,17 @@ function renderVideos() {
 
 }
 
-renderVideos();
-/* OUVERTURE ET FERMETURE DE LA GALERIE */
-
 function toggleVideos() {
 
   const gallery = document.getElementById('videoGallery');
 
   if (!gallery) return;
 
-  if (gallery.style.display === 'none') {
-    gallery.style.display = 'block';
-    renderVideos();
-  } else {
-    gallery.style.display = 'none';
-  }
+  const opening = gallery.style.display === 'none';
+
+  gallery.style.display = opening ? 'block' : 'none';
+
+  if (opening) renderVideos();
 
 }
 
@@ -628,41 +573,50 @@ function toggleVideos() {
 
 let cart = {};
 
-const euro = n => n.toLocaleString(
-  'fr-FR',
-  {
-    style:'currency',
-    currency:'EUR',
-    maximumFractionDigits:0
-  }
-);
+const euro = n => n.toLocaleString('fr-FR', {
+  style:'currency',
+  currency:'EUR',
+  maximumFractionDigits:0
+});
 
+
+/* NAVIGATION */
 
 function show(id) {
 
   ['home','catalog','cart'].forEach(x => {
 
-    document.getElementById(x)
-    .classList.toggle('hidden', x !== id);
+    const section = document.getElementById(x);
+
+    if (section) {
+      section.classList.toggle('hidden', x !== id);
+    }
 
   });
 
 }
-
 
 function goHome() {
   show('home');
 }
 
 
+/* CATÉGORIES */
+
 function showCategory(name) {
+
+  if (!data[name]) {
+    console.error('Catégorie introuvable :', name);
+    return;
+  }
 
   show('catalog');
 
-  document.getElementById('catTitle')
-  .textContent = name.toUpperCase();
+  document.getElementById('catTitle').textContent =
+    name.toUpperCase();
 
   document.getElementById('products').innerHTML =
+
   data[name].map((x,i) => `
 
     <div class="product">
@@ -672,7 +626,7 @@ function showCategory(name) {
         <b>${x.w}</b>
 
         <div class="price">
-         ${euro(x.p)} ${x.emoji || ''}
+          ${euro(x.p)} ${x.emoji || ''}
         </div>
 
       </div>
@@ -702,6 +656,8 @@ function showCategory(name) {
 }
 
 
+/* MODIFICATION QUANTITÉS */
+
 function change(name,i,d) {
 
   const key = name+'|'+i;
@@ -713,22 +669,29 @@ function change(name,i,d) {
 
   if (!cart[key]) delete cart[key];
 
-  document.getElementById('q-'+i).textContent =
-  cart[key] || 0;
+  const quantity = document.getElementById('q-'+i);
+
+  if (quantity) {
+    quantity.textContent = cart[key] || 0;
+  }
 
   updateCount();
 
 }
 
 
+/* COMPTEUR PANIER */
+
 function updateCount() {
 
-  document.getElementById('cartCount')
-  .textContent = Object.values(cart)
-  .reduce((a,b) => a+b, 0);
+  document.getElementById('cartCount').textContent =
+
+    Object.values(cart).reduce((a,b) => a+b, 0);
 
 }
 
+
+/* AFFICHAGE PANIER */
 
 function showCart() {
 
@@ -806,10 +769,12 @@ function showCart() {
   '<div class="empty">Ton panier est vide pour le moment.</div>';
 
   document.getElementById('total').textContent =
-  'Total : ' + euro(total);
+    'Total : ' + euro(total);
 
 }
 
+
+/* MODIFICATION PANIER */
 
 function cartChange(key,d) {
 
@@ -823,6 +788,8 @@ function cartChange(key,d) {
 
 }
 
+
+/* SUPPRESSION PRODUIT */
 
 function removeItem(key) {
 
