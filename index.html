@@ -368,6 +368,67 @@ nav {
   onclick="showCategory('🍫 DrySift 90U 🍫')">
     🍫 DrySift 90U 🍫 <span>›</span>
   </button>
+  const productVideos = [
+  {
+    title: 'Présentation produit',
+    src: 'videos/IMG_1723.mp4'
+  }
+];
+
+function renderVideos() {
+
+  const box = document.getElementById('videoGallery');
+
+  if (!box) return;
+
+  if (!productVideos.length) {
+
+    box.innerHTML = `
+      <div class="video-empty">
+        Les vidéos arriveront ici.<br><br>
+        Tout Arrivage sera Affiché Ici🥷
+      </div>
+    `;
+
+    return;
+  }
+
+  box.innerHTML = productVideos.map(v => `
+
+    <article class="video-card">
+
+      <video controls playsinline preload="metadata">
+
+        <source src="${v.src}" type="video/mp4">
+
+        Ton navigateur ne peut pas lire cette vidéo.
+
+      </video>
+
+      <div class="video-name">
+        ${v.title}
+      </div>
+
+    </article>
+
+  `).join('');
+
+}
+
+function toggleVideos() {
+
+  const gallery = document.getElementById('videoGallery');
+
+  if (!gallery) return;
+
+  const opening = gallery.style.display === 'none';
+
+  gallery.style.display = opening ? 'block' : 'none';
+
+  if (opening) renderVideos();
+
+}
+
 
   <button type="button" class="category"
   onclick="showCategory('🍁 HAZE 🍁')">
@@ -507,66 +568,6 @@ const data = {
 
 /* VIDÉOS */
 
-const productVideos = [
-  {
-    title: 'Présentation produit',
-    src: 'videos/IMG_1723.mp4'
-  }
-];
-
-function renderVideos() {
-
-  const box = document.getElementById('videoGallery');
-
-  if (!box) return;
-
-  if (!productVideos.length) {
-
-    box.innerHTML = `
-      <div class="video-empty">
-        Les vidéos arriveront ici.<br><br>
-        Tout Arrivage sera Affiché Ici🥷
-      </div>
-    `;
-
-    return;
-  }
-
-  box.innerHTML = productVideos.map(v => `
-
-    <article class="video-card">
-
-      <video controls playsinline preload="metadata">
-
-        <source src="${v.src}" type="video/mp4">
-
-        Ton navigateur ne peut pas lire cette vidéo.
-
-      </video>
-
-      <div class="video-name">
-        ${v.title}
-      </div>
-
-    </article>
-
-  `).join('');
-
-}
-
-function toggleVideos() {
-
-  const gallery = document.getElementById('videoGallery');
-
-  if (!gallery) return;
-
-  const opening = gallery.style.display === 'none';
-
-  gallery.style.display = opening ? 'block' : 'none';
-
-  if (opening) renderVideos();
-
-}
 
 
 /* PANIER */
