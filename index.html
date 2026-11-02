@@ -839,7 +839,22 @@ function removeItem(key) {
   showCart();
 
 }
+/* ACTIVATION DU BOUTON VIDÉOS */
 
+function toggleVideos() {
+
+  const gallery = document.getElementById('videoGallery');
+
+  if (!gallery) return;
+
+  if (gallery.style.display === 'none') {
+    gallery.style.display = 'block';
+    renderVideos();
+  } else {
+    gallery.style.display = 'none';
+  }
+
+}
 </script>
 
 </body>
