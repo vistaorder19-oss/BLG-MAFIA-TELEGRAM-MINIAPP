@@ -118,10 +118,7 @@ header img {
   margin: 12px 0 6px;
   text-shadow: 0 0 8px rgba(255, 255, 255, 0.25);
 }
-  font-size: 25px;
-  letter-spacing: 4px;
-  margin: 14px 0 4px;
-}
+  
 
 .sub, .section-title {
   color: #aaa;
@@ -418,8 +415,7 @@ body * {
 </style>
 </head>
 <body
-    </div>
-</div>
+
 <header>
   <img src="blg-logo.jpeg" alt="BLG INDUSTRY">
   <h1> 🥷BLG INDUSTRY🥷 </h1>
@@ -440,8 +436,8 @@ body * {
   </button>
 
   <button class="category"
-  onclick="showCategory('🍫 FILTRÉ 🍫')">
-    🍫 FILTRÉ 🍫 <span>›</span>
+  onclick="showCategory('🍫 DrySift 90u 🍫')">
+    🍫 DrySift 90u 🍫 <span>›</span>
   </button>
 
   <button class="category"
@@ -564,10 +560,8 @@ GESTION DES VIDÉOS PRODUITS
 const productVideos = [
   {
     title: 'Présentation produit',
-    src: 'videos/IMG_1723.mov'
+    src: 'videos/IMG_1723.mp4'
   }
-];
-
 ];
 
 
@@ -839,22 +833,7 @@ function removeItem(key) {
   showCart();
 
 }
-/* ACTIVATION DU BOUTON VIDÉOS */
 
-function toggleVideos() {
-
-  const gallery = document.getElementById('videoGallery');
-
-  if (!gallery) return;
-
-  if (gallery.style.display === 'none') {
-    gallery.style.display = 'block';
-    renderVideos();
-  } else {
-    gallery.style.display = 'none';
-  }
-
-}
 </script>
 
 </body>
