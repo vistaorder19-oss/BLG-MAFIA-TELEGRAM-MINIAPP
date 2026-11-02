@@ -464,30 +464,19 @@ body * {
 </a>
   <!-- GALERIE VIDÉOS -->
 
-  <button class="video-section">
+<section class="video-section">
 
-    <div class="video-heading">
-      <span class="video-mark">▶</span>
-      <div class="section-title" style="margin:0">
-        VIDÉOS PRODUITS HD 📹✅
-      </div>
+  <button class="video-heading" onclick="toggleVideos()">
+
+    <span class="video-mark">▶</span>
+
+    <div class="section-title" style="margin:0">
+      VIDÉOS PRODUITS HD 📹✅
     </div>
 
-    <div id="videoGallery"></div>
-
-  </section>
-
-</section>
-
-<section id="catalog" class="hidden">
-
-  <button class="back" onclick="goHome()">
-    ‹ RETOUR
   </button>
 
-  <div class="section-title" id="catTitle"></div>
-
-  <div id="products"></div>
+  <div id="videoGallery" style="display:none"></div>
 
 </section>
 
@@ -623,6 +612,22 @@ function renderVideos() {
 }
 
 renderVideos();
+/* OUVERTURE ET FERMETURE DE LA GALERIE */
+
+function toggleVideos() {
+
+  const gallery = document.getElementById('videoGallery');
+
+  if (!gallery) return;
+
+  if (gallery.style.display === 'none') {
+    gallery.style.display = 'block';
+    renderVideos();
+  } else {
+    gallery.style.display = 'none';
+  }
+
+}
 
 
 /* PANIER */
