@@ -374,10 +374,11 @@ nav {
     🍁 HAZE 🍁 <span>›</span>
   </button>
   
-   <button type="button" class="category"
-  onclick="showCategory('📹 VIDÉOS PRODUITS HD 📹')">
-  📹 VIDÉOS PRODUITS HD 📹 <span></span>
-    </button>
+ <button type="button" class="category"
+onclick="toggleVideos()">
+  📹 VIDÉOS PRODUITS HD 📹 <span>›</span>
+</button>
+<div id="videoGallery" style="display:none"></div>
     
 
   <a class="contact-btn"
@@ -388,10 +389,6 @@ nav {
     ✈️ CONTACT TELEGRAM ✈️
     <span>@blgindustry1</span>
 
-  </a>
-
-
-  </a>
 
 
 
@@ -460,33 +457,32 @@ nav {
 
 const data = {
 
-  {'🧼 La Mousse Top 🧼'},
+  '🧼 La Mousse Top 🧼': [
     {w:'3,3g',p:20,emoji:'🍫'},
     {w:'10 g',p:60,emoji:'🎰'},
     {w:'25 g',p:140,emoji:'⚡️'},
-    {w:'50 g',p:240,emoji:'🎯'}
+    {w:'50 g',p:240,emoji:'🎯'},
     {w:'100g',p:380,emoji:'🦂'}
-
   ],
 
-  {'🍫 DrySift 90u 🍫'},
+  '🍫 DrySift 90u 🍫': [
     {w:'2,5g',p:20,emoji:'🧠'},
     {w:'7g',p:50,emoji:'🐍'},
     {w:'10g',p:80,emoji:'🦂'},
     {w:'25g',p:240,emoji:'💥'},
-    {w:'50g',p:300,emoji:'🎾'}
+    {w:'50g',p:300,emoji:'🎾'},
     {w:'100g',p:500,emoji:'🎯'}
-
   ],
 
- {'🍁 HAZE 🍁'},
+  '🍁 HAZE 🍁': [
     {w:'≈3g',p:20,emoji:'🎰'},
     {w:'6g',p:40,emoji:'🗽'},
     {w:'10g',p:70,emoji:'👽'},
     {w:'25g',p:240,emoji:'😈'},
-    {w:'50g',p:350,emoji:'🫀'
+    {w:'50g',p:350,emoji:'🫀'},
     {w:'100g',p:400,emoji:'🦂'}
   ]
+
 };
 
 
@@ -502,7 +498,7 @@ const data = {
     title: '🦂NEW DROP DrySift 90u🦂',
     subtitle: 'Cherry Devils😈🐍'
     src: 'videos/Cherry Devils 😈 - copie - copie.mp4'
-  }
+  },
 ];
 
 function renderVideos() {
