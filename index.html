@@ -514,71 +514,12 @@ const data = {
   const productVideos = [
   {
     title: 'Top Mousse 2k26 🎰',
-<div class="sub">:'La Mousse Top 👽'</div>
-    
-    src: 'videos/La Mousse Top.mp4'
-  }
-];
-
-function renderVideos() {
-
-  const box = document.getElementById('videoGallery');
-
-  if (!box) return;
-
-  if (!productVideos.length) {
-
-    box.innerHTML = `
-      <div class="video-empty">
-        Les vidéos arriveront ici.<br><br>
-        Tout Arrivage sera Affiché Ici🥷
-      </div>
-    `;
-
-    return;
-  }
-
-  box.innerHTML = productVideos.map(v => `
-
-    <article class="video-card">
-
-      <video controls playsinline preload="metadata">
-
-        <source src="${v.src}" type="video/mp4">
-
-        Ton navigateur ne peut pas lire cette vidéo.
-
-      </video>
-
-      <div class="video-name">
-        ${v.title}
-      </div>
-
-    </article>
-
-  `).join('');
-
-}
-
-function toggleVideos() {
-
-  const gallery = document.getElementById('videoGallery');
-
-  if (!gallery) return;
-
-  const opening = gallery.style.display === 'none';
-
-  gallery.style.display = opening ? 'block' : 'none';
-
-  if (opening) renderVideos();
-
-}
-
-const productVideos = [
-  {
+   subtitle:'La Mousse Top 👽',
+  src: 'videos/La Mousse Top.mp4'
+  },
+    {
     title: '🦂NEW DROP DrySift 90u🦂',
-     <div class="sub">: 'Cherry Devils😈🐍'</div>
-    
+    subtitle: 'Cherry Devils😈🐍'
     src: 'videos/Cherry Devils 😈 - copie - copie.mp4'
   }
 ];
@@ -613,9 +554,13 @@ function renderVideos() {
 
       </video>
 
-      <div class="video-name">
-        ${v.title}
-      </div>
+<div class="video-name">
+  ${v.title}
+</div>
+
+<div class="sub">
+  ${v.subtitle}
+</div>
 
     </article>
 
@@ -636,6 +581,7 @@ function toggleVideos() {
   if (opening) renderVideos();
 
 }
+
 
 
 /* PANIER */
