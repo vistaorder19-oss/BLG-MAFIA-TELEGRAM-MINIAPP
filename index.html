@@ -767,15 +767,14 @@ function showCart() {
 
   '<div class="empty">Ton panier est vide pour le moment.</div>';
 
-  document.getElementById('total').textContent =
-    'Total : ' + euro(total);
-
-}
 document.getElementById('cartItems').innerHTML += `
   <button class="primary" onclick="sendOrderTelegram()">
     ✈️ ENVOYER MA COMMANDE À BLG INDUSTRY
   </button>
 `;
+
+}
+
 function sendOrderTelegram() {
   const entries = Object.entries(cart);
 
