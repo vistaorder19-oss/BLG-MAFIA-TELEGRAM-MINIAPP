@@ -435,9 +435,6 @@ onclick="toggleVideos()">
 
   <div class="total" id="total"></div>
 
-  <p class="notice">
-    Fait une capture d'écran de ton panier
-    et clique sur contact
   </p>
 
 </section>
@@ -774,7 +771,40 @@ function showCart() {
     'Total : ' + euro(total);
 
 }
+document.getElementById('cartItems').innerHTML += `
+  <button class="primary" onclick="sendOrderTelegram()">
+    ✈️ ENVOYER MA COMMANDE À BLG INDUSTRY
+  </button>
+`;
+function sendOrderTelegram() {
+  const entries = Object.entries(cart);
 
+  if (!entries.length) {
+    alert('Ton panier est vide !');
+    return;
+  }
+
+  let message = '🥷 NOUVELLE COMMANDE BLG INDUSTRY 🥷\n\n';
+  let total = 0;
+
+  entries.forEach(([key, q]) => {
+    const [name, index] = key.split('|');
+    const item = data[name][Number(index)];
+    const sum = item.p * q;
+
+    total += sum;
+
+    message += `${name}\n`;
+    message += `${item.w} x ${q} = ${euro(sum)}\n\n`;
+  });
+
+  message += `💰 TOTAL : ${euro(total)}`;
+
+  const url = 'https://t.me/blgindustry1?text=' +
+    encodeURIComponent(message);
+
+  window.open(url, '_blank');
+}
 
 /* MODIFICATION PANIER */
 
