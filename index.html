@@ -337,7 +337,217 @@ nav {
 .hidden {
   display: none !important;
 }
+/* ==========================================
+   🐉 DRAGON BALL Z - THEME SUPER SAIYAN
+========================================== */
 
+:root {
+  --red: #ff7900;
+  --dbz-orange: #ff7900;
+  --dbz-gold: #ffd52a;
+  --dbz-blue: #087bd5;
+  --dbz-dark: #080e1b;
+}
+
+/* FOND GÉNÉRAL */
+
+body {
+  background-color: #080e1b;
+  color: #ffffff;
+}
+
+/* TITRE PRINCIPAL */
+
+h1 {
+  color: var(--dbz-gold);
+  text-shadow:
+    0 0 8px #ff9d00,
+    0 0 20px #ff7900;
+}
+
+/* CATÉGORIES */
+
+.category {
+  background: linear-gradient(
+    135deg,
+    rgba(8, 30, 65, .96),
+    rgba(20, 35, 60, .94),
+    rgba(100, 43, 5, .85)
+  );
+
+  border: 2px solid var(--dbz-orange);
+  border-radius: 20px;
+
+  box-shadow:
+    0 0 12px rgba(255, 121, 0, .35),
+    inset 0 0 20px rgba(8, 123, 213, .12);
+
+  transition: .25s ease;
+}
+
+.category:active {
+  transform: scale(.97);
+  box-shadow: 0 0 25px var(--dbz-gold);
+}
+
+.category span {
+  color: var(--dbz-gold);
+}
+
+/* CASES PRODUITS */
+
+.product,
+.cart-row {
+  background: linear-gradient(
+    145deg,
+    rgba(12, 25, 48, .97),
+    rgba(20, 18, 28, .97)
+  );
+
+  border: 1.5px solid rgba(255, 121, 0, .8);
+  border-radius: 20px;
+
+  box-shadow:
+    0 0 12px rgba(255, 121, 0, .2),
+    inset 0 0 15px rgba(8, 123, 213, .08);
+
+  transition: .25s ease;
+}
+
+.product:active {
+  transform: scale(.98);
+  box-shadow: 0 0 20px rgba(255, 213, 42, .5);
+}
+
+/* PRIX */
+
+.price {
+  color: var(--dbz-gold);
+  text-shadow: 0 0 10px rgba(255, 213, 42, .45);
+}
+
+/* BOUTONS QUANTITÉ */
+
+.qty button,
+.remove {
+  background: linear-gradient(
+    135deg,
+    #087bd5,
+    #064b91
+  );
+
+  border: 1px solid #36a9ff;
+  border-radius: 12px;
+
+  box-shadow: 0 0 10px rgba(8, 123, 213, .35);
+}
+
+/* BOUTON PRINCIPAL */
+
+.primary {
+  background: linear-gradient(
+    135deg,
+    #ff9d00,
+    #ed4b00
+  );
+
+  border: 1px solid var(--dbz-gold);
+  border-radius: 15px;
+
+  color: white;
+  box-shadow: 0 0 15px rgba(255, 121, 0, .35);
+}
+
+.primary:active {
+  transform: scale(.97);
+}
+
+/* VIDÉOS */
+
+.video-section {
+  background: linear-gradient(
+    145deg,
+    rgba(10, 25, 48, .97),
+    rgba(25, 15, 20, .97)
+  );
+
+  border: 1.5px solid var(--dbz-orange);
+  border-radius: 20px;
+
+  box-shadow: 0 0 18px rgba(255, 121, 0, .2);
+}
+
+.video-card {
+  background: rgba(8, 15, 29, .95);
+  border: 1px solid var(--dbz-blue);
+  border-radius: 16px;
+}
+
+.video-mark {
+  color: var(--dbz-gold);
+}
+
+/* CONTACT */
+
+.contact-btn,
+.product-video {
+  background: linear-gradient(
+    135deg,
+    #102b4a,
+    #101827
+  );
+
+  border: 1.5px solid var(--dbz-blue);
+  border-radius: 18px;
+
+  box-shadow: 0 0 15px rgba(8, 123, 213, .25);
+}
+
+.contact-btn span,
+.product-video span {
+  color: #65c5ff;
+}
+
+/* NAVIGATION BASSE */
+
+nav {
+  background: rgba(5, 12, 25, .97);
+  border-top: 2px solid var(--dbz-orange);
+
+  box-shadow:
+    0 -5px 20px rgba(255, 121, 0, .18);
+}
+
+.navbtn b {
+  color: var(--dbz-gold);
+}
+
+/* TITRES SECTIONS */
+
+.section-title {
+  color: var(--dbz-gold);
+  text-shadow: 0 0 8px rgba(255, 213, 42, .3);
+}
+
+/* ANIMATION AURA */
+
+@keyframes dbzAura {
+  0%, 100% {
+    box-shadow: 0 0 8px rgba(255, 121, 0, .2);
+  }
+
+  50% {
+    box-shadow:
+      0 0 16px rgba(255, 213, 42, .35),
+      0 0 25px rgba(8, 123, 213, .2);
+  }
+}
+
+.category,
+.product,
+.video-section {
+  animation: dbzAura 4s infinite ease-in-out;
+}
 </style>
 </head>
 
