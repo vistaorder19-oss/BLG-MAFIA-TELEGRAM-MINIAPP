@@ -586,6 +586,105 @@ nav {
     gap: 5px;
   }
 }
+/* =================================
+   ⭐ DRAGON BALLS ANIMÉES
+================================= */
+
+.product {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Boule de cristal */
+
+.product::before {
+  content: "★";
+  position: absolute;
+  top: 9px;
+  right: 10px;
+
+  width: 42px;
+  height: 42px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: #d93416;
+  font-size: 17px;
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle at 30% 25%,
+      #fff6b0 0%,
+      #ffb52b 22%,
+      #ff7900 55%,
+      #a82b00 100%
+    );
+
+  border: 2px solid #ffd85a;
+
+  box-shadow:
+    0 0 8px #ff9d00,
+    0 0 18px #ff7900,
+    inset -5px -5px 10px #9d3100;
+
+  animation: crystalFloat 3s ease-in-out infinite;
+}
+
+/* Reflet lumineux */
+
+.product::after {
+  content: "";
+  position: absolute;
+  top: 14px;
+  right: 39px;
+
+  width: 8px;
+  height: 8px;
+
+  border-radius: 50%;
+  background: white;
+  opacity: .8;
+
+  filter: blur(2px);
+  animation: crystalShine 2s infinite;
+}
+
+/* Flottement */
+
+@keyframes crystalFloat {
+  0%, 100% {
+    transform: translateY(0) rotate(-5deg);
+  }
+
+  50% {
+    transform: translateY(-6px) rotate(5deg);
+  }
+}
+
+/* Éclat */
+
+@keyframes crystalShine {
+  0%, 100% {
+    opacity: .3;
+  }
+
+  50% {
+    opacity: 1;
+  }
+}
+
+/* Effet au toucher */
+
+.product:active::before {
+  box-shadow:
+    0 0 15px #ffd52a,
+    0 0 30px #ff7900,
+    0 0 45px #ff7900;
+}
 </style>
 </head>
 
