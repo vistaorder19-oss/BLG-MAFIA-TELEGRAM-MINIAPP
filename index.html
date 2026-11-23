@@ -337,154 +337,168 @@ nav {
 .hidden {
   display: none !important;
 }
-/* ==========================================
-   🐉 DRAGON BALL Z - THEME SUPER SAIYAN
-========================================== */
+/* =========================================
+   🐉 DBZ SC 19 - NOUVELLE INTERFACE
+========================================= */
 
 :root {
-  --red: #ff7900;
   --dbz-orange: #ff7900;
-  --dbz-gold: #ffd52a;
+  --dbz-yellow: #ffd52a;
   --dbz-blue: #087bd5;
-  --dbz-dark: #080e1b;
+  --dbz-bg: #080d19;
 }
 
-/* FOND GÉNÉRAL */
+/* FOND */
 
 body {
-  background-color: #080e1b;
-  color: #ffffff;
+  background-color: var(--dbz-bg);
+  color: #fff;
 }
 
-/* TITRE PRINCIPAL */
+/* HEADER */
+
+header {
+  padding: 20px 14px;
+}
+
+header img {
+  filter: drop-shadow(0 0 14px rgba(255,121,0,.45));
+}
 
 h1 {
-  color: var(--dbz-gold);
+  color: var(--dbz-yellow);
   text-shadow:
-    0 0 8px #ff9d00,
-    0 0 20px #ff7900;
+    0 0 8px #ff7900,
+    0 0 22px #ff7900;
+  letter-spacing: 3px;
+}
+
+/* TITRES DE SECTIONS */
+
+.section-title {
+  color: var(--dbz-yellow);
+  font-size: 15px;
+  letter-spacing: 2px;
+  text-shadow: 0 0 10px rgba(255,213,42,.4);
 }
 
 /* CATÉGORIES */
 
 .category {
-  background: linear-gradient(
-    135deg,
-    rgba(8, 30, 65, .96),
-    rgba(20, 35, 60, .94),
-    rgba(100, 43, 5, .85)
-  );
+  min-height: 82px;
+  padding: 22px 18px;
+  border: 1.5px solid var(--dbz-orange);
+  border-radius: 17px;
 
-  border: 2px solid var(--dbz-orange);
-  border-radius: 20px;
+  background:
+    linear-gradient(
+      120deg,
+      #10294b,
+      #101522,
+      #40200b
+    );
 
   box-shadow:
-    0 0 12px rgba(255, 121, 0, .35),
-    inset 0 0 20px rgba(8, 123, 213, .12);
+    0 0 12px rgba(255,121,0,.2),
+    inset 0 0 15px rgba(8,123,213,.12);
 
   transition: .25s ease;
 }
 
 .category:active {
   transform: scale(.97);
-  box-shadow: 0 0 25px var(--dbz-gold);
+  box-shadow: 0 0 22px var(--dbz-yellow);
 }
 
 .category span {
-  color: var(--dbz-gold);
+  color: var(--dbz-yellow);
 }
 
-/* CASES PRODUITS */
+/* GRILLE PRODUITS */
 
-.product,
-.cart-row {
-  background: linear-gradient(
-    145deg,
-    rgba(12, 25, 48, .97),
-    rgba(20, 18, 28, .97)
-  );
+#products {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  margin-top: 15px;
+}
 
-  border: 1.5px solid rgba(255, 121, 0, .8);
-  border-radius: 20px;
+/* CARTES PRODUITS */
+
+.product {
+  min-width: 0;
+  min-height: 145px;
+  padding: 14px 10px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: stretch;
+  gap: 14px;
+
+  background:
+    linear-gradient(
+      145deg,
+      #142747,
+      #101522 65%,
+      #26170d
+    );
+
+  border: 1.5px solid rgba(255,121,0,.8);
+  border-radius: 17px;
 
   box-shadow:
-    0 0 12px rgba(255, 121, 0, .2),
-    inset 0 0 15px rgba(8, 123, 213, .08);
-
-  transition: .25s ease;
+    0 0 12px rgba(255,121,0,.16),
+    inset 0 0 15px rgba(8,123,213,.1);
 }
 
-.product:active {
-  transform: scale(.98);
-  box-shadow: 0 0 20px rgba(255, 213, 42, .5);
+.product > div:first-child {
+  text-align: center;
+  font-size: 16px;
 }
 
-/* PRIX */
+/* PRÉSENTATION DES QUANTITÉS */
 
-.price {
-  color: var(--dbz-gold);
-  text-shadow: 0 0 10px rgba(255, 213, 42, .45);
+.qty {
+  justify-content: center;
+  gap: 9px;
 }
-
-/* BOUTONS QUANTITÉ */
 
 .qty button,
 .remove {
+  width: 34px;
+  height: 34px;
+  border: 1px solid #36a9ff;
+  border-radius: 10px;
+
   background: linear-gradient(
     135deg,
     #087bd5,
     #064b91
   );
 
-  border: 1px solid #36a9ff;
-  border-radius: 12px;
-
-  box-shadow: 0 0 10px rgba(8, 123, 213, .35);
-}
-
-/* BOUTON PRINCIPAL */
-
-.primary {
-  background: linear-gradient(
-    135deg,
-    #ff9d00,
-    #ed4b00
-  );
-
-  border: 1px solid var(--dbz-gold);
-  border-radius: 15px;
-
   color: white;
-  box-shadow: 0 0 15px rgba(255, 121, 0, .35);
-}
-
-.primary:active {
-  transform: scale(.97);
 }
 
 /* VIDÉOS */
 
-.video-section {
+.video-section,
+.video-card {
   background: linear-gradient(
     145deg,
-    rgba(10, 25, 48, .97),
-    rgba(25, 15, 20, .97)
+    #142747,
+    #101522
   );
 
   border: 1.5px solid var(--dbz-orange);
-  border-radius: 20px;
+  border-radius: 17px;
 
-  box-shadow: 0 0 18px rgba(255, 121, 0, .2);
+  box-shadow: 0 0 14px rgba(255,121,0,.2);
 }
 
-.video-card {
-  background: rgba(8, 15, 29, .95);
+.video-card video {
   border: 1px solid var(--dbz-blue);
-  border-radius: 16px;
-}
-
-.video-mark {
-  color: var(--dbz-gold);
+  border-radius: 12px;
 }
 
 /* CONTACT */
@@ -494,59 +508,83 @@ h1 {
   background: linear-gradient(
     135deg,
     #102b4a,
-    #101827
+    #101522
   );
 
   border: 1.5px solid var(--dbz-blue);
-  border-radius: 18px;
-
-  box-shadow: 0 0 15px rgba(8, 123, 213, .25);
-}
-
-.contact-btn span,
-.product-video span {
-  color: #65c5ff;
+  border-radius: 16px;
+  box-shadow: 0 0 14px rgba(8,123,213,.25);
 }
 
 /* NAVIGATION BASSE */
 
 nav {
-  background: rgba(5, 12, 25, .97);
+  background: rgba(5,12,25,.97);
   border-top: 2px solid var(--dbz-orange);
 
   box-shadow:
-    0 -5px 20px rgba(255, 121, 0, .18);
+    0 -5px 22px rgba(255,121,0,.2);
+
+  gap: 12px;
+  padding: 10px 8px;
+}
+
+.navbtn {
+  border-radius: 12px;
+  padding: 10px 14px;
 }
 
 .navbtn b {
-  color: var(--dbz-gold);
+  color: var(--dbz-yellow);
 }
 
-/* TITRES SECTIONS */
+/* PANIER */
 
-.section-title {
-  color: var(--dbz-gold);
-  text-shadow: 0 0 8px rgba(255, 213, 42, .3);
+.cart-row {
+  background: linear-gradient(
+    145deg,
+    #142747,
+    #101522
+  );
+
+  border: 1.5px solid var(--dbz-orange);
+  border-radius: 16px;
 }
 
 /* ANIMATION AURA */
 
-@keyframes dbzAura {
+@keyframes superSaiyanAura {
   0%, 100% {
-    box-shadow: 0 0 8px rgba(255, 121, 0, .2);
+    box-shadow: 0 0 8px rgba(255,121,0,.15);
   }
 
   50% {
     box-shadow:
-      0 0 16px rgba(255, 213, 42, .35),
-      0 0 25px rgba(8, 123, 213, .2);
+      0 0 17px rgba(255,213,42,.3),
+      0 0 24px rgba(8,123,213,.16);
   }
 }
 
 .category,
 .product,
-.video-section {
-  animation: dbzAura 4s infinite ease-in-out;
+.video-card {
+  animation: superSaiyanAura 4s ease-in-out infinite;
+}
+
+/* PETITS ÉCRANS */
+
+@media (max-width: 360px) {
+  #products {
+    gap: 8px;
+  }
+
+  .product {
+    padding: 10px 7px;
+  }
+
+  .qty {
+    gap: 5px;
+  }
 }
 </style>
 </head>
