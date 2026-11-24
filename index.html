@@ -1,357 +1,36 @@
 <!DOCTYPE html>
 <html lang="fr">
-
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#090909">
 
-<title>DBZ SC 19|😈 No1🏅 Sur le Secteur Rapport Qualité/prix 😈</title>
+<title>DBZ SC 19 | No1 Sur le Secteur</title>
 
 <script src="https://telegram.org/js/telegram-web-app.js"></script>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
 <link href="https://fonts.googleapis.com/css2?family=Black+Ops+One&display=swap" rel="stylesheet">
 
 <style>
 
+/* =========================================
+   VARIABLES GLOBALES
+========================================= */
+
 :root {
   color-scheme: dark;
   --red: #e01924;
+  --dbz-orange: #ff7900;
+  --dbz-yellow: #ffd52a;
+  --dbz-blue: #087bd5;
 }
 
 * {
   box-sizing: border-box;
+  font-family: 'Black Ops One', cursive !important;
 }
-
-body {
-  margin: 0;
-  background-color: #090909;
-  background-image:
-    linear-gradient(
-      rgba(0,0,0,.28),
-      rgba(0,0,0,.38)
-    ),
-    url('./background-storm.PNG');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  color: white;
-  font-family: 'Black Ops One', cursive;
-}
-
-body * {
-  font-family: 'Black Ops One', cursive;
-}
-
-header {
-  text-align: center;
-  padding: 24px 16px;
-}
-
-header img {
-  width: min(190px,55vw);
-  height: auto;
-}
-
-h1 {
-  font-size: 32px;
-  font-weight: 400;
-  letter-spacing: 2px;
-  text-align: center;
-  color: white;
-  text-transform: uppercase;
-  margin: 12px 0 6px;
-  text-shadow: 0 0 8px rgba(255,255,255,.25);
-}
-
-.sub,
-.section-title {
-  color: #aaa;
-  letter-spacing: 2px;
-  font-size: 12px;
-}
-
-main {
-  max-width: 620px;
-  margin: auto;
-  padding: 12px 18px 100px;
-}
-
-.section-title {
-  margin: 18px 0;
-}
-
-/* CATÉGORIES */
-
-.category {
-  position: relative;
-  overflow: hidden;
-  isolation: isolate;
-  width: 100%;
-  padding: 24px 18px;
-  margin: 10px 0;
-  background: linear-gradient(110deg,#151515,#1d1011,#151515);
-  border: 1px solid var(--red);
-  border-radius: 9px;
-  color: white;
-  text-align: left;
-  font-size: 20px;
-  font-weight: bold;
-  letter-spacing: 2px;
-  cursor: pointer;
-  box-shadow: inset 0 0 18px #e0192418,
-              0 0 10px #e019241c;
-}
-
-.category:before {
-  content: "⚡";
-  position: absolute;
-  right: 45px;
-  top: 4px;
-  font-size: 45px;
-  color: var(--red);
-  opacity: .22;
-  pointer-events: none;
-}
-
-.category:after {
-  content: "⚡";
-  position: absolute;
-  right: 12px;
-  bottom: -5px;
-  font-size: 30px;
-  color: #ff4650;
-  opacity: .14;
-  pointer-events: none;
-}
-
-.category span {
-  float: right;
-  color: var(--red);
-  font-size: 24px;
-}
-
-/* CATALOGUE */
-
-.back {
-  background: none;
-  border: 0;
-  color: var(--red);
-  padding: 12px 0;
-  font-weight: bold;
-  cursor: pointer;
-}
-
-.product,
-.cart-row {
-  background: #151515;
-  border: 1px solid #333;
-  border-radius: 9px;
-  padding: 16px;
-  margin: 10px 0;
-}
-
-.product {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 12px;
-}
-
-.price {
-  color: var(--red);
-  font-weight: bold;
-  margin-top: 6px;
-}
-
-.qty {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-
-.qty button,
-.remove {
-  background: #222;
-  border: 1px solid var(--red);
-  color: white;
-  border-radius: 6px;
-  width: 34px;
-  height: 34px;
-  font-size: 20px;
-  cursor: pointer;
-}
-
-.primary {
-  padding: 14px;
-  border-radius: 7px;
-  background: var(--red);
-  border: 0;
-  color: white;
-  width: 100%;
-  font-weight: bold;
-  margin-top: 12px;
-  cursor: pointer;
-}
-
-.total {
-  text-align: right;
-  font-size: 22px;
-  font-weight: bold;
-  margin: 20px 2px;
-}
-
-.empty,
-.notice {
-  color: #888;
-  text-align: center;
-}
-
-.notice {
-  font-size: 11px;
-  line-height: 1.5;
-  margin: 28px 5px;
-}
-
-/* VIDÉOS */
-
-.video-section {
-  margin: 28px 0 18px;
-  padding: 18px 14px;
-  border: 1px solid #572027;
-  border-radius: 10px;
-  background: linear-gradient(145deg,#151515,#0c0c0c);
-  box-shadow: 0 0 18px #e0192410;
-}
-
-.video-heading {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  width: 100%;
-  padding: 0;
-  margin: 0;
-  border: 0;
-  background: none;
-  color: white;
-  text-align: left;
-  cursor: pointer;
-}
-
-.video-mark {
-  color: var(--red);
-  font-size: 22px;
-}
-
-.video-card {
-  background: #111;
-  border: 1px solid #333;
-  border-radius: 9px;
-  padding: 10px;
-  margin: 12px 0;
-}
-
-.video-card video {
-  display: block;
-  width: 100%;
-  max-height: 520px;
-  aspect-ratio: 16 / 9;
-  object-fit: contain;
-  background: black;
-  border-radius: 6px;
-}
-
-.video-name {
-  font-weight: bold;
-  letter-spacing: 1px;
-  margin: 10px 2px 3px;
-}
-
-.video-empty {
-  color: #888;
-  font-size: 13px;
-  line-height: 1.5;
-  text-align: center;
-  padding: 14px 8px;
-}
-
-/* CONTACT */
-
-.contact-btn,
-.product-video {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 7px;
-  width: 100%;
-  padding: 17px;
-  margin: 18px 0;
-  border: 1px solid #229ED9;
-  border-radius: 9px;
-  background: #10232e;
-  color: white;
-  text-decoration: none;
-  font-weight: bold;
-  letter-spacing: 1px;
-  text-align: center;
-}
-
-.contact-btn span,
-.product-video span {
-  color: #70cfff;
-  font-size: 14px;
-}
-
-/* NAVIGATION */
-
-nav {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background: #101010;
-  border-top: 1px solid #333;
-  display: flex;
-  justify-content: center;
-  gap: 18px;
-  padding: 12px;
-  z-index: 5;
-}
-
-.navbtn {
-  background: none;
-  border: 0;
-  color: white;
-  padding: 8px 16px;
-  cursor: pointer;
-}
-
-.navbtn b {
-  color: var(--red);
-}
-
-.hidden {
-  display: none !important;
-}
-
-/* =========================================
-   🐉 DBZ SC 19 - INTERFACE
-========================================= */
-
-:root {
-  --dbz-orange: #ff7900;
-  --dbz-yellow: #ffd52a;
-  --dbz-blue: #087bd5;
-  --dbz-bg: #080d19;
-}
-
-/* =========================================
-   🎬 VIDÉO EN ARRIÈRE-PLAN GLOBAL
-========================================= */
 
 html, body {
   margin: 0;
@@ -360,11 +39,14 @@ html, body {
 }
 
 body {
-  color: #fff;
+  color: white;
   position: relative;
+  isolation: isolate;
 }
 
-/* Vidéo plein écran */
+/* =========================================
+   VIDÉO D'ARRIÈRE-PLAN
+========================================= */
 
 #bg-video {
   position: fixed;
@@ -376,42 +58,53 @@ body {
   pointer-events: none;
 }
 
-/* Contenu de la boutique */
+/* =========================================
+   STRUCTURE PRINCIPALE
+========================================= */
 
 main {
   position: relative;
   z-index: 1;
+  max-width: 620px;
   min-height: 100vh;
+  margin: auto;
+  padding: 12px 18px 100px;
   background: transparent !important;
 }
-
-/* Fonds transparents */
-
-header,
-section {
-  background: transparent !important;
-}
-
-/* =========================================
-   TITRES
-========================================= */
 
 header {
+  text-align: center;
   padding: 20px 14px;
+  background: transparent !important;
+}
+
+header img {
+  width: min(190px,55vw);
+  height: auto;
 }
 
 h1 {
+  font-size: 32px;
+  font-weight: 400;
+  letter-spacing: 3px;
+  text-align: center;
   color: var(--dbz-yellow);
+  text-transform: uppercase;
+  margin: 12px 0 6px;
   text-shadow:
     0 0 8px #ff7900,
     0 0 22px #ff7900;
-  letter-spacing: 3px;
+}
+
+.sub,
+.section-title {
+  color: var(--dbz-yellow);
+  letter-spacing: 2px;
+  font-size: 15px;
 }
 
 .section-title {
-  color: var(--dbz-yellow);
-  font-size: 15px;
-  letter-spacing: 2px;
+  margin: 18px 0;
   text-shadow: 0 0 10px rgba(255,213,42,.4);
 }
 
@@ -422,8 +115,11 @@ h1 {
 .category {
   position: relative;
   overflow: hidden;
+  isolation: isolate;
+  width: 100%;
   min-height: 82px;
   padding: 22px 75px 22px 18px;
+  margin: 10px 0;
 
   border: 1.5px solid var(--dbz-orange);
   border-radius: 17px;
@@ -434,6 +130,13 @@ h1 {
     rgba(16,21,34,.88),
     rgba(64,32,11,.88)
   );
+
+  color: white;
+  text-align: left;
+  font-size: 20px;
+  font-weight: bold;
+  letter-spacing: 2px;
+  cursor: pointer;
 
   box-shadow:
     0 0 12px rgba(255,121,0,.2),
@@ -448,7 +151,9 @@ h1 {
 }
 
 .category span {
+  float: right;
   color: var(--dbz-yellow);
+  font-size: 24px;
 }
 
 /* Boules de cristal */
@@ -489,8 +194,17 @@ h1 {
 }
 
 /* =========================================
-   GRILLE PRODUITS
+   CATALOGUE
 ========================================= */
+
+.back {
+  background: none;
+  border: 0;
+  color: var(--dbz-orange);
+  padding: 12px 0;
+  font-weight: bold;
+  cursor: pointer;
+}
 
 #products {
   display: grid;
@@ -503,16 +217,9 @@ h1 {
    CARTES PRODUITS
 ========================================= */
 
-.product {
+.product,
+.cart-row {
   min-width: 0;
-  min-height: 145px;
-  padding: 14px 10px;
-
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: stretch;
-  gap: 14px;
 
   background: linear-gradient(
     145deg,
@@ -524,9 +231,24 @@ h1 {
   border: 1.5px solid rgba(255,121,0,.8);
   border-radius: 17px;
 
+  padding: 14px 10px;
+  margin: 10px 0;
+
   box-shadow:
     0 0 12px rgba(255,121,0,.16),
     inset 0 0 15px rgba(8,123,213,.1);
+
+  animation: superSaiyanAura 4s ease-in-out infinite;
+}
+
+.product {
+  min-height: 145px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: stretch;
+  gap: 14px;
 }
 
 .product > div:first-child {
@@ -534,11 +256,19 @@ h1 {
   font-size: 16px;
 }
 
+.price {
+  color: var(--dbz-yellow);
+  font-weight: bold;
+  margin-top: 6px;
+}
+
 /* =========================================
    QUANTITÉS
 ========================================= */
 
 .qty {
+  display: flex;
+  align-items: center;
   justify-content: center;
   gap: 9px;
 }
@@ -547,6 +277,7 @@ h1 {
 .remove {
   width: 34px;
   height: 34px;
+
   border: 1px solid #36a9ff;
   border-radius: 10px;
 
@@ -557,6 +288,46 @@ h1 {
   );
 
   color: white;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+/* =========================================
+   BOUTONS
+========================================= */
+
+.primary {
+  padding: 14px;
+  border-radius: 7px;
+  background: var(--red);
+  border: 0;
+  color: white;
+  width: 100%;
+  font-weight: bold;
+  margin-top: 12px;
+  cursor: pointer;
+}
+
+.total {
+  text-align: right;
+  font-size: 22px;
+  font-weight: bold;
+  margin: 20px 2px;
+  color: var(--dbz-yellow);
+}
+
+.empty,
+.notice {
+  color: #ccc;
+  text-align: center;
+}
+
+.notice {
+  position: relative;
+  z-index: 1;
+  font-size: 11px;
+  line-height: 1.5;
+  margin: 28px 5px;
 }
 
 /* =========================================
@@ -566,16 +337,40 @@ h1 {
 .video-section,
 .video-card {
   background: rgba(20,39,71,.90);
-
   border: 1.5px solid var(--dbz-orange);
   border-radius: 17px;
-
   box-shadow: 0 0 14px rgba(255,121,0,.2);
 }
 
+.video-card {
+  padding: 10px;
+  margin: 12px 0;
+  animation: superSaiyanAura 4s ease-in-out infinite;
+}
+
 .video-card video {
+  display: block;
+  width: 100%;
+  max-height: 520px;
+  aspect-ratio: 16 / 9;
+  object-fit: contain;
+  background: black;
   border: 1px solid var(--dbz-blue);
   border-radius: 12px;
+}
+
+.video-name {
+  font-weight: bold;
+  letter-spacing: 1px;
+  margin: 10px 2px 3px;
+}
+
+.video-empty {
+  color: #ccc;
+  font-size: 13px;
+  line-height: 1.5;
+  text-align: center;
+  padding: 14px 8px;
 }
 
 /* =========================================
@@ -584,51 +379,75 @@ h1 {
 
 .contact-btn,
 .product-video {
-  background: rgba(16,43,74,.92);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 7px;
+  width: 100%;
+  padding: 17px;
+  margin: 18px 0;
 
   border: 1.5px solid var(--dbz-blue);
   border-radius: 16px;
 
+  background: rgba(16,43,74,.92);
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  letter-spacing: 1px;
+  text-align: center;
+
   box-shadow: 0 0 14px rgba(8,123,213,.25);
 }
 
+.contact-btn span,
+.product-video span {
+  color: #70cfff;
+  font-size: 14px;
+}
+
 /* =========================================
-   NAVIGATION BASSE
+   NAVIGATION
 ========================================= */
 
 nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 5;
+
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  padding: 10px 8px;
+
   background: rgba(5,12,25,.97);
   border-top: 2px solid var(--dbz-orange);
 
   box-shadow:
     0 -5px 22px rgba(255,121,0,.2);
-
-  gap: 12px;
-  padding: 10px 8px;
 }
 
 .navbtn {
+  background: none;
+  border: 0;
   border-radius: 12px;
+  color: white;
   padding: 10px 14px;
+  cursor: pointer;
 }
 
 .navbtn b {
   color: var(--dbz-yellow);
 }
 
-/* =========================================
-   PANIER
-========================================= */
-
-.cart-row {
-  background: rgba(20,39,71,.92);
-
-  border: 1.5px solid var(--dbz-orange);
-  border-radius: 16px;
+.hidden {
+  display: none !important;
 }
 
 /* =========================================
-   ANIMATION AURA
+   ANIMATIONS
 ========================================= */
 
 @keyframes superSaiyanAura {
@@ -642,16 +461,6 @@ nav {
       0 0 24px rgba(8,123,213,.16);
   }
 }
-
-.category,
-.product,
-.video-card {
-  animation: superSaiyanAura 4s ease-in-out infinite;
-}
-
-/* =========================================
-   ANIMATION BOULES DE CRISTAL
-========================================= */
 
 @keyframes dragonBallFloat {
   0%, 100% {
@@ -683,7 +492,22 @@ nav {
   }
 }
 
-<!-- ACCUEIL -->
+</style>
+</head>
+
+<body>
+
+<!-- VIDÉO DE FOND -->
+
+<video id="bg-video" autoplay muted loop playsinline preload="auto" aria-hidden="true">
+  <source src="videos/blg-logo.MP4" type="video/mp4">
+</video>
+
+<main>
+
+<!-- =========================================
+     ACCUEIL
+========================================= -->
 
 <section id="home">
 
@@ -705,13 +529,13 @@ nav {
   onclick="showCategory('🍀 La Beuh 🍀')">
     🍀 La Beuh 🍀 <span>›</span>
   </button>
-  
- <button type="button" class="category"
-onclick="toggleVideos()">
-  📹 VIDÉOS PRODUITS HD 📹 <span>›</span>
-</button>
-<div id="videoGallery" style="display:none"></div>
-    
+
+  <button type="button" class="category"
+  onclick="toggleVideos()">
+    📹 VIDÉOS PRODUITS HD 📹 <span>›</span>
+  </button>
+
+  <div id="videoGallery" style="display:none"></div>
 
   <a class="contact-btn"
   href="https://t.me/blgindustry1"
@@ -731,13 +555,13 @@ onclick="toggleVideos()">
     🥷📹 CANAL VIDÉO 📹🥷
     <span>CANAL TELEGRAM</span>
 
-</a>
-
-
+  </a>
 
 </section>
 
-<!-- CATALOGUE -->
+<!-- =========================================
+     CATALOGUE
+========================================= -->
 
 <section id="catalog" class="hidden">
 
@@ -751,7 +575,9 @@ onclick="toggleVideos()">
 
 </section>
 
-<!-- PANIER -->
+<!-- =========================================
+     PANIER
+========================================= -->
 
 <section id="cart" class="hidden">
 
@@ -767,8 +593,6 @@ onclick="toggleVideos()">
 
   <div class="total" id="total"></div>
 
-  </p>
-
 </section>
 
 <p class="notice">
@@ -777,6 +601,10 @@ onclick="toggleVideos()">
 </p>
 
 </main>
+
+<!-- =========================================
+     NAVIGATION BASSE
+========================================= -->
 
 <nav>
 
@@ -793,7 +621,9 @@ onclick="toggleVideos()">
 
 <script>
 
-/* CATALOGUE */
+/* =========================================
+   CATALOGUE
+========================================= */
 
 const data = {
 
@@ -825,21 +655,26 @@ const data = {
 
 };
 
+/* =========================================
+   VIDÉOS
+========================================= */
 
-/* VIDÉOS */
+const productVideos = [
 
-  const productVideos = [
   {
     title: '🦂Filtré 90u🦂',
     subtitle: '🍬Gelato41 🏔️MMF',
     src: 'videos/Gelato41.MP4'
   },
- {
+
+  {
     title: 'Restock en cours',
     subtitle: 'Sold Out',
     src: 'videos/Sold Out BLG.MP4'
-  },
+  }
+
 ];
+
 function renderVideos() {
 
   const box = document.getElementById('videoGallery');
@@ -851,7 +686,7 @@ function renderVideos() {
     box.innerHTML = `
       <div class="video-empty">
         Les vidéos arriveront ici.<br><br>
-        Tout Arrivage sera Affiché Ici🥷
+        Tout arrivage sera affiché ici 🥷
       </div>
     `;
 
@@ -870,13 +705,13 @@ function renderVideos() {
 
       </video>
 
-<div class="video-name">
-  ${v.title}
-</div>
+      <div class="video-name">
+        ${v.title}
+      </div>
 
-<div class="sub">
-  ${v.subtitle}
-</div>
+      <div class="sub">
+        ${v.subtitle}
+      </div>
 
     </article>
 
@@ -898,20 +733,21 @@ function toggleVideos() {
 
 }
 
-
-
-/* PANIER */
+/* =========================================
+   PANIER
+========================================= */
 
 let cart = {};
 
 const euro = n => n.toLocaleString('fr-FR', {
-  style:'currency',
-  currency:'EUR',
-  maximumFractionDigits:0
+  style: 'currency',
+  currency: 'EUR',
+  maximumFractionDigits: 0
 });
 
-
-/* NAVIGATION */
+/* =========================================
+   NAVIGATION
+========================================= */
 
 function show(id) {
 
@@ -931,8 +767,9 @@ function goHome() {
   show('home');
 }
 
-
-/* CATÉGORIES */
+/* =========================================
+   CATÉGORIES
+========================================= */
 
 function showCategory(name) {
 
@@ -986,8 +823,9 @@ function showCategory(name) {
 
 }
 
-
-/* MODIFICATION QUANTITÉS */
+/* =========================================
+   MODIFICATION QUANTITÉS
+========================================= */
 
 function change(name,i,d) {
 
@@ -1010,8 +848,9 @@ function change(name,i,d) {
 
 }
 
-
-/* COMPTEUR PANIER */
+/* =========================================
+   COMPTEUR PANIER
+========================================= */
 
 function updateCount() {
 
@@ -1021,8 +860,9 @@ function updateCount() {
 
 }
 
-
-/* AFFICHAGE PANIER */
+/* =========================================
+   AFFICHAGE PANIER
+========================================= */
 
 function showCart() {
 
@@ -1099,15 +939,29 @@ function showCart() {
 
   '<div class="empty">Ton panier est vide pour le moment.</div>';
 
-document.getElementById('cartItems').innerHTML += `
-  <button class="primary" onclick="sendOrderTelegram()">
-    ✈️ Envoyer À DBZ Social Club19
-  </button>
-`;
+  document.getElementById('total').textContent =
+    entries.length ? 'TOTAL : ' + euro(total) : '';
+
+  if (entries.length) {
+
+    document.getElementById('cartItems').innerHTML += `
+
+      <button class="primary" onclick="sendOrderTelegram()">
+        ✈️ Envoyer À DBZ Social Club19
+      </button>
+
+    `;
+
+  }
 
 }
 
+/* =========================================
+   ENVOI TELEGRAM
+========================================= */
+
 function sendOrderTelegram() {
+
   const entries = Object.entries(cart);
 
   if (!entries.length) {
@@ -1116,17 +970,22 @@ function sendOrderTelegram() {
   }
 
   let message = '🥷 Commande DBZ Social Club 🥷\n\n';
+
   let total = 0;
 
-  entries.forEach(([key, q]) => {
-    const [name, index] = key.split('|');
+  entries.forEach(([key,q]) => {
+
+    const [name,index] = key.split('|');
+
     const item = data[name][Number(index)];
-    const sum = item.p * q;
+
+    const sum = item.p*q;
 
     total += sum;
 
     message += `${name}\n`;
     message += `${item.w} x ${q} = ${euro(sum)}\n\n`;
+
   });
 
   message += `💰 TOTAL : ${euro(total)}`;
@@ -1135,9 +994,12 @@ function sendOrderTelegram() {
     encodeURIComponent(message);
 
   window.open(url, '_blank');
+
 }
 
-/* MODIFICATION PANIER */
+/* =========================================
+   MODIFICATION PANIER
+========================================= */
 
 function cartChange(key,d) {
 
@@ -1151,8 +1013,9 @@ function cartChange(key,d) {
 
 }
 
-
-/* SUPPRESSION PRODUIT */
+/* =========================================
+   SUPPRESSION PRODUIT
+========================================= */
 
 function removeItem(key) {
 
