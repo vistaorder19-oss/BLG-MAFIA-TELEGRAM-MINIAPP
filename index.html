@@ -640,17 +640,61 @@ nav {
     filter: brightness(1.35);
   }
 }
+.dbz-header {
+  position: relative;
+  width: 100%;
+  min-height: 300px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.header-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+
+.header-content {
+  position: relative;
+  z-index: 1;
+  color: white;
+  padding: 30px 15px;
+}
+
+.dbz-header h1 {
+  font-size: 36px;
+  text-shadow: 0 0 15px red;
+}
+
+.dbz-header .sub {
+  font-weight: bold;
+  text-shadow: 0 0 10px black;
+}
 </style>
 </head>
 
 <body>
 
-<header>
-   <img src="blg-logo.jpeg" alt="DBZ SC 19">
-  <h1>DBZ SC 19</h1>
-  <div class="sub">😈 No1🏅 Sur le Secteur Rapport Qualité/prix 😈</div>
-</header>
+<header class="dbz-header">
 
+  <video class="header-video" autoplay muted loop playsinline>
+    <source src="blg-logo.MP4" type="video/mp4">
+  </video>
+
+  <div class="header-content">
+    <h1>DBZ SC 19</h1>
+    <div class="sub">
+      😈 No1🏅 Sur le Secteur Rapport Qualité/prix 😈
+    </div>
+  </div>
+
+</header>
 <main>
 
 <!-- ACCUEIL -->
