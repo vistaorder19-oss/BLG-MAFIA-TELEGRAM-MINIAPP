@@ -337,8 +337,9 @@ nav {
 .hidden {
   display: none !important;
 }
+
 /* =========================================
-   🐉 DBZ SC 19 - NOUVELLE INTERFACE
+   🐉 DBZ SC 19 - INTERFACE
 ========================================= */
 
 :root {
@@ -348,21 +349,55 @@ nav {
   --dbz-bg: #080d19;
 }
 
-/* FOND */
+/* =========================================
+   🎬 VIDÉO EN ARRIÈRE-PLAN GLOBAL
+========================================= */
 
-body {
-  background-color: var(--dbz-bg);
-  color: #fff;
+html, body {
+  margin: 0;
+  min-height: 100%;
+  background: transparent !important;
 }
 
-/* HEADER */
+body {
+  color: #fff;
+  position: relative;
+}
+
+/* Vidéo plein écran */
+
+#bg-video {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* Contenu de la boutique */
+
+main {
+  position: relative;
+  z-index: 1;
+  min-height: 100vh;
+  background: transparent !important;
+}
+
+/* Fonds transparents */
+
+header,
+section {
+  background: transparent !important;
+}
+
+/* =========================================
+   TITRES
+========================================= */
 
 header {
   padding: 20px 14px;
-}
-
-header img {
-  filter: drop-shadow(0 0 14px rgba(255,121,0,.45));
 }
 
 h1 {
@@ -373,8 +408,6 @@ h1 {
   letter-spacing: 3px;
 }
 
-/* TITRES DE SECTIONS */
-
 .section-title {
   color: var(--dbz-yellow);
   font-size: 15px;
@@ -382,21 +415,25 @@ h1 {
   text-shadow: 0 0 10px rgba(255,213,42,.4);
 }
 
-/* CATÉGORIES */
+/* =========================================
+   CATÉGORIES
+========================================= */
 
 .category {
+  position: relative;
+  overflow: hidden;
   min-height: 82px;
-  padding: 22px 18px;
+  padding: 22px 75px 22px 18px;
+
   border: 1.5px solid var(--dbz-orange);
   border-radius: 17px;
 
-  background:
-    linear-gradient(
-      120deg,
-      #10294b,
-      #101522,
-      #40200b
-    );
+  background: linear-gradient(
+    120deg,
+    rgba(16,41,75,.88),
+    rgba(16,21,34,.88),
+    rgba(64,32,11,.88)
+  );
 
   box-shadow:
     0 0 12px rgba(255,121,0,.2),
@@ -414,185 +451,7 @@ h1 {
   color: var(--dbz-yellow);
 }
 
-/* GRILLE PRODUITS */
-
-#products {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 12px;
-  margin-top: 15px;
-}
-
-/* CARTES PRODUITS */
-
-.product {
-  min-width: 0;
-  min-height: 145px;
-  padding: 14px 10px;
-
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: stretch;
-  gap: 14px;
-
-  background:
-    linear-gradient(
-      145deg,
-      #142747,
-      #101522 65%,
-      #26170d
-    );
-
-  border: 1.5px solid rgba(255,121,0,.8);
-  border-radius: 17px;
-
-  box-shadow:
-    0 0 12px rgba(255,121,0,.16),
-    inset 0 0 15px rgba(8,123,213,.1);
-}
-
-.product > div:first-child {
-  text-align: center;
-  font-size: 16px;
-}
-
-/* PRÉSENTATION DES QUANTITÉS */
-
-.qty {
-  justify-content: center;
-  gap: 9px;
-}
-
-.qty button,
-.remove {
-  width: 34px;
-  height: 34px;
-  border: 1px solid #36a9ff;
-  border-radius: 10px;
-
-  background: linear-gradient(
-    135deg,
-    #087bd5,
-    #064b91
-  );
-
-  color: white;
-}
-
-/* VIDÉOS */
-
-.video-section,
-.video-card {
-  background: linear-gradient(
-    145deg,
-    #142747,
-    #101522
-  );
-
-  border: 1.5px solid var(--dbz-orange);
-  border-radius: 17px;
-
-  box-shadow: 0 0 14px rgba(255,121,0,.2);
-}
-
-.video-card video {
-  border: 1px solid var(--dbz-blue);
-  border-radius: 12px;
-}
-
-/* CONTACT */
-
-.contact-btn,
-.product-video {
-  background: linear-gradient(
-    135deg,
-    #102b4a,
-    #101522
-  );
-
-  border: 1.5px solid var(--dbz-blue);
-  border-radius: 16px;
-  box-shadow: 0 0 14px rgba(8,123,213,.25);
-}
-
-/* NAVIGATION BASSE */
-
-nav {
-  background: rgba(5,12,25,.97);
-  border-top: 2px solid var(--dbz-orange);
-
-  box-shadow:
-    0 -5px 22px rgba(255,121,0,.2);
-
-  gap: 12px;
-  padding: 10px 8px;
-}
-
-.navbtn {
-  border-radius: 12px;
-  padding: 10px 14px;
-}
-
-.navbtn b {
-  color: var(--dbz-yellow);
-}
-
-/* PANIER */
-
-.cart-row {
-  background: linear-gradient(
-    145deg,
-    #142747,
-    #101522
-  );
-
-  border: 1.5px solid var(--dbz-orange);
-  border-radius: 16px;
-}
-
-/* ANIMATION AURA */
-
-@keyframes superSaiyanAura {
-  0%, 100% {
-    box-shadow: 0 0 8px rgba(255,121,0,.15);
-  }
-
-  50% {
-    box-shadow:
-      0 0 17px rgba(255,213,42,.3),
-      0 0 24px rgba(8,123,213,.16);
-  }
-}
-
-.category,
-.product,
-.video-card {
-  animation: superSaiyanAura 4s ease-in-out infinite;
-}
-
-/* PETITS ÉCRANS */
-
-@media (max-width: 360px) {
-  #products {
-    gap: 8px;
-  }
-
-  .product {
-    padding: 10px 7px;
-  }
-
-  .qty {
-    gap: 5px;
-  }
-}
-/* ⭐ BOULES DE CRISTAL SUR LES CATÉGORIES */
-
-.category {
-  position: relative;
-  overflow: hidden;
-  padding-right: 75px;
-}
+/* Boules de cristal */
 
 .category::before {
   content: "★";
@@ -629,6 +488,171 @@ nav {
   animation: dragonBallFloat 2.5s ease-in-out infinite;
 }
 
+/* =========================================
+   GRILLE PRODUITS
+========================================= */
+
+#products {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  margin-top: 15px;
+}
+
+/* =========================================
+   CARTES PRODUITS
+========================================= */
+
+.product {
+  min-width: 0;
+  min-height: 145px;
+  padding: 14px 10px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: stretch;
+  gap: 14px;
+
+  background: linear-gradient(
+    145deg,
+    rgba(20,39,71,.90),
+    rgba(16,21,34,.90) 65%,
+    rgba(38,23,13,.90)
+  );
+
+  border: 1.5px solid rgba(255,121,0,.8);
+  border-radius: 17px;
+
+  box-shadow:
+    0 0 12px rgba(255,121,0,.16),
+    inset 0 0 15px rgba(8,123,213,.1);
+}
+
+.product > div:first-child {
+  text-align: center;
+  font-size: 16px;
+}
+
+/* =========================================
+   QUANTITÉS
+========================================= */
+
+.qty {
+  justify-content: center;
+  gap: 9px;
+}
+
+.qty button,
+.remove {
+  width: 34px;
+  height: 34px;
+  border: 1px solid #36a9ff;
+  border-radius: 10px;
+
+  background: linear-gradient(
+    135deg,
+    #087bd5,
+    #064b91
+  );
+
+  color: white;
+}
+
+/* =========================================
+   VIDÉOS PRODUITS
+========================================= */
+
+.video-section,
+.video-card {
+  background: rgba(20,39,71,.90);
+
+  border: 1.5px solid var(--dbz-orange);
+  border-radius: 17px;
+
+  box-shadow: 0 0 14px rgba(255,121,0,.2);
+}
+
+.video-card video {
+  border: 1px solid var(--dbz-blue);
+  border-radius: 12px;
+}
+
+/* =========================================
+   CONTACT
+========================================= */
+
+.contact-btn,
+.product-video {
+  background: rgba(16,43,74,.92);
+
+  border: 1.5px solid var(--dbz-blue);
+  border-radius: 16px;
+
+  box-shadow: 0 0 14px rgba(8,123,213,.25);
+}
+
+/* =========================================
+   NAVIGATION BASSE
+========================================= */
+
+nav {
+  background: rgba(5,12,25,.97);
+  border-top: 2px solid var(--dbz-orange);
+
+  box-shadow:
+    0 -5px 22px rgba(255,121,0,.2);
+
+  gap: 12px;
+  padding: 10px 8px;
+}
+
+.navbtn {
+  border-radius: 12px;
+  padding: 10px 14px;
+}
+
+.navbtn b {
+  color: var(--dbz-yellow);
+}
+
+/* =========================================
+   PANIER
+========================================= */
+
+.cart-row {
+  background: rgba(20,39,71,.92);
+
+  border: 1.5px solid var(--dbz-orange);
+  border-radius: 16px;
+}
+
+/* =========================================
+   ANIMATION AURA
+========================================= */
+
+@keyframes superSaiyanAura {
+  0%, 100% {
+    box-shadow: 0 0 8px rgba(255,121,0,.15);
+  }
+
+  50% {
+    box-shadow:
+      0 0 17px rgba(255,213,42,.3),
+      0 0 24px rgba(8,123,213,.16);
+  }
+}
+
+.category,
+.product,
+.video-card {
+  animation: superSaiyanAura 4s ease-in-out infinite;
+}
+
+/* =========================================
+   ANIMATION BOULES DE CRISTAL
+========================================= */
+
 @keyframes dragonBallFloat {
   0%, 100% {
     translate: 0 0;
@@ -640,62 +664,24 @@ nav {
     filter: brightness(1.35);
   }
 }
-.dbz-header {
-  position: relative;
-  width: 100%;
-  min-height: 300px;
-  overflow: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
+
+/* =========================================
+   PETITS ÉCRANS
+========================================= */
+
+@media (max-width: 360px) {
+  #products {
+    gap: 8px;
+  }
+
+  .product {
+    padding: 10px 7px;
+  }
+
+  .qty {
+    gap: 5px;
+  }
 }
-
-.header-video {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  z-index: 0;
-}
-
-.header-content {
-  position: relative;
-  z-index: 1;
-  color: white;
-  padding: 30px 15px;
-}
-
-.dbz-header h1 {
-  font-size: 36px;
-  text-shadow: 0 0 15px red;
-}
-
-.dbz-header .sub {
-  font-weight: bold;
-  text-shadow: 0 0 10px black;
-}
-</style>
-</head>
-
-<body>
-
-<header class="dbz-header">
-
-  <video class="header-video" autoplay muted loop playsinline>
-    <source src="videos/blg-logo.MP4" type="video/mp4">
-  </video>
-
-  <div class="header-content">
-    <h1>DBZ SC 19</h1>
-    <div class="sub">
-      😈 No1🏅 Sur le Secteur Rapport Qualité/prix 😈
-    </div>
-  </div>
-
-</header>
-<main>
 
 <!-- ACCUEIL -->
 
